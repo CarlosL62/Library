@@ -4,7 +4,7 @@
  */
 package com.mycompany.library;
 
-import Students.StudentsForm;
+import com.mycompany.library.GUI.loans;
 
 /**
  *
@@ -63,6 +63,11 @@ public class Menu extends javax.swing.JFrame {
 
         btnLoans.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
         btnLoans.setText("Préstamos");
+        btnLoans.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLoansMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnLoans, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 210, -1));
 
         btnReports.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
@@ -96,6 +101,13 @@ public class Menu extends javax.swing.JFrame {
         students.setVisible(true);
         students.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnStudentsActionPerformed
+
+    private void btnLoansMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoansMouseClicked
+        // TODO add your handling code here:
+        loans loansWindow = new loans();
+        loansWindow.setVisible(true);
+        loansWindow.setLocationRelativeTo(null); //TE RECORDAS DE BORRAR ESTO Y LA IMPORTACIÓN
+    }//GEN-LAST:event_btnLoansMouseClicked
 
     /**
      * @param args the command line arguments
