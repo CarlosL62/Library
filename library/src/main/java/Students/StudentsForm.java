@@ -28,6 +28,7 @@ public class StudentsForm extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblStudents = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1000, 750));
@@ -37,6 +38,9 @@ public class StudentsForm extends javax.swing.JFrame {
         lblStudents.setFont(new java.awt.Font("Liberation Serif", 0, 36)); // NOI18N
         lblStudents.setText("Estudiantes");
         jPanel1.add(lblStudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
+
+        jButton1.setText("Javi guapo");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,6 +96,7 @@ public class StudentsForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblStudents;
     // End of variables declaration//GEN-END:variables
