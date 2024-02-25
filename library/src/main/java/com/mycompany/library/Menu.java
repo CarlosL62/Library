@@ -154,7 +154,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentsActionPerformed
         Students.StudentsForm students = new Students.StudentsForm(this);
-        this.setVisible(false);
+        this.dispose();
         students.setVisible(true);
         students.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnStudentsActionPerformed
