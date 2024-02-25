@@ -4,6 +4,8 @@
  */
 package Books;
 
+import com.mycompany.library.Menu;
+
 /**
  *
  * @author carlos
@@ -11,10 +13,17 @@ package Books;
 public class booksForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form booksForm
+     * Creates new form StudentsForm
      */
-    public booksForm() {
+    public booksForm(Menu menu) {
         initComponents();
+        menu = this.menu;
+    }
+    
+    Menu menu = new Menu();
+
+    private booksForm() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -26,21 +35,395 @@ public class booksForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        lblStudents = new javax.swing.JLabel();
+        btnExit = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnAdd = new javax.swing.JButton();
+        lblNewStudent1 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        txtCarnet = new javax.swing.JTextField();
+        lblNewStudent2 = new javax.swing.JLabel();
+        lblNewStudent3 = new javax.swing.JLabel();
+        txtdd = new javax.swing.JTextField();
+        lblNewStudent6 = new javax.swing.JLabel();
+        txtmm = new javax.swing.JTextField();
+        lblNewStudent7 = new javax.swing.JLabel();
+        txtyyyy = new javax.swing.JTextField();
+        lblNewStudent4 = new javax.swing.JLabel();
+        lblNewStudent8 = new javax.swing.JLabel();
+        lblNewStudent9 = new javax.swing.JLabel();
+        lblNewStudent10 = new javax.swing.JLabel();
+        lblNewStudent11 = new javax.swing.JLabel();
+        lblNewStudent12 = new javax.swing.JLabel();
+        btnAdd1 = new javax.swing.JButton();
+        txtName1 = new javax.swing.JTextField();
+        lblNewStudent13 = new javax.swing.JLabel();
+        txtName2 = new javax.swing.JTextField();
+        lblNewStudent14 = new javax.swing.JLabel();
+        txtName3 = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        lblNewStudent = new javax.swing.JLabel();
+        lblNewStudent5 = new javax.swing.JLabel();
+        jcbFilter = new javax.swing.JComboBox<>();
+        txtFilter = new javax.swing.JTextField();
+        tblStudents = new javax.swing.JScrollPane();
+        tblBooks = new javax.swing.JTable();
+        btnSearch = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setSize(new java.awt.Dimension(1000, 750));
+
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblStudents.setBackground(new java.awt.Color(51, 51, 51));
+        lblStudents.setFont(new java.awt.Font("Liberation Serif", 1, 36)); // NOI18N
+        lblStudents.setForeground(new java.awt.Color(255, 255, 255));
+        lblStudents.setText("Libros");
+        jPanel1.add(lblStudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, -1, -1));
+
+        btnExit.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/goBack.png"))); // NOI18N
+        btnExit.setText("Regresar");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 730, 210, -1));
+
+        jPanel2.setBackground(new java.awt.Color(0, 51, 102));
+
+        btnAdd.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/addStudent.png"))); // NOI18N
+        btnAdd.setText("Agregar");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        lblNewStudent1.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent1.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
+        lblNewStudent1.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent1.setText("Código:");
+
+        txtName.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+
+        txtCarnet.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+
+        lblNewStudent2.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent2.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
+        lblNewStudent2.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent2.setText("Autor:");
+
+        lblNewStudent3.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent3.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
+        lblNewStudent3.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent3.setText("Título:");
+        lblNewStudent3.setToolTipText("");
+
+        txtdd.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+
+        lblNewStudent6.setFont(new java.awt.Font("Liberation Serif", 1, 24)); // NOI18N
+        lblNewStudent6.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent6.setText("/");
+
+        txtmm.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+
+        lblNewStudent7.setFont(new java.awt.Font("Liberation Serif", 1, 24)); // NOI18N
+        lblNewStudent7.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent7.setText("/");
+
+        txtyyyy.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+
+        lblNewStudent4.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent4.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        lblNewStudent4.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent4.setText("Nuevo libro");
+
+        lblNewStudent8.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent8.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
+        lblNewStudent8.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent8.setText("Fecha de publicación:");
+
+        lblNewStudent9.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent9.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
+        lblNewStudent9.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent9.setText("mes");
+
+        lblNewStudent10.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent10.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
+        lblNewStudent10.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent10.setText("día");
+
+        lblNewStudent11.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent11.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
+        lblNewStudent11.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent11.setText("año");
+
+        lblNewStudent12.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent12.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
+        lblNewStudent12.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent12.setText("Importar desde un archivo de texto");
+
+        btnAdd1.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        btnAdd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/importData.png"))); // NOI18N
+        btnAdd1.setText("Importar");
+        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd1ActionPerformed(evt);
+            }
+        });
+
+        txtName1.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+
+        lblNewStudent13.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent13.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
+        lblNewStudent13.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent13.setText("No. Copias:");
+        lblNewStudent13.setToolTipText("");
+
+        txtName2.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+
+        lblNewStudent14.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent14.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
+        lblNewStudent14.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent14.setText("Editorial:");
+        lblNewStudent14.setToolTipText("");
+
+        txtName3.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblNewStudent8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtdd, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblNewStudent10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblNewStudent6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtmm, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblNewStudent9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblNewStudent7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtyyyy, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblNewStudent11, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblNewStudent2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblNewStudent14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtName3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNewStudent4)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblNewStudent1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblNewStudent3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblNewStudent13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblNewStudent12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(lblNewStudent4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblNewStudent1)
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNewStudent2)
+                            .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblNewStudent14)
+                                .addComponent(txtName3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(5, 5, 5)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtdd, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNewStudent6)
+                            .addComponent(txtmm, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNewStudent7)
+                            .addComponent(txtyyyy, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNewStudent8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNewStudent9)
+                            .addComponent(lblNewStudent10)
+                            .addComponent(lblNewStudent11))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNewStudent3)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblNewStudent13)
+                                .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAdd)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdd1)
+                    .addComponent(lblNewStudent12))
+                .addContainerGap())
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 740, 250));
+
+        jPanel3.setBackground(new java.awt.Color(0, 51, 102));
+
+        lblNewStudent.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        lblNewStudent.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent.setText("Listado de estudiantes");
+
+        lblNewStudent5.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent5.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
+        lblNewStudent5.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent5.setText("Filtrar usando");
+        lblNewStudent5.setToolTipText("");
+
+        jcbFilter.setFont(new java.awt.Font("Liberation Serif", 0, 14)); // NOI18N
+        jcbFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cod Libro", "Nombre", "Autor" }));
+
+        txtFilter.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+
+        tblBooks.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Código", "Título", "No. Copias", "Autor", "Editorial", "Fecha de publicación"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblStudents.setViewportView(tblBooks);
+
+        btnSearch.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        btnSearch.setText("Buscar");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tblStudents)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNewStudent)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblNewStudent5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jcbFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(lblNewStudent)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNewStudent5)
+                            .addComponent(jcbFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnSearch)))
+                .addGap(18, 18, 18)
+                .addComponent(tblStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 740, 340));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        this.dispose();
+        menu.setVisible(true);
+        menu.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdd1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -68,6 +451,9 @@ public class booksForm extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(booksForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -78,5 +464,40 @@ public class booksForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAdd1;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JComboBox<String> jcbFilter;
+    private javax.swing.JLabel lblNewStudent;
+    private javax.swing.JLabel lblNewStudent1;
+    private javax.swing.JLabel lblNewStudent10;
+    private javax.swing.JLabel lblNewStudent11;
+    private javax.swing.JLabel lblNewStudent12;
+    private javax.swing.JLabel lblNewStudent13;
+    private javax.swing.JLabel lblNewStudent14;
+    private javax.swing.JLabel lblNewStudent2;
+    private javax.swing.JLabel lblNewStudent3;
+    private javax.swing.JLabel lblNewStudent4;
+    private javax.swing.JLabel lblNewStudent5;
+    private javax.swing.JLabel lblNewStudent6;
+    private javax.swing.JLabel lblNewStudent7;
+    private javax.swing.JLabel lblNewStudent8;
+    private javax.swing.JLabel lblNewStudent9;
+    private javax.swing.JLabel lblStudents;
+    private javax.swing.JTable tblBooks;
+    private javax.swing.JScrollPane tblStudents;
+    private javax.swing.JTextField txtCarnet;
+    private javax.swing.JTextField txtFilter;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtName1;
+    private javax.swing.JTextField txtName2;
+    private javax.swing.JTextField txtName3;
+    private javax.swing.JTextField txtdd;
+    private javax.swing.JTextField txtmm;
+    private javax.swing.JTextField txtyyyy;
     // End of variables declaration//GEN-END:variables
 }
