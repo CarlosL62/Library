@@ -5,6 +5,7 @@
 package com.mycompany.library;
 
 import com.mycompany.library.GUI.loans;
+import com.mycompany.library.GUI.reports;
 
 /**
  *
@@ -72,6 +73,11 @@ public class Menu extends javax.swing.JFrame {
 
         btnReports.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
         btnReports.setText("Reportes");
+        btnReports.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnReportsMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnReports, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 210, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,8 +112,17 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         loans loansWindow = new loans();
         loansWindow.setVisible(true);
-        loansWindow.setLocationRelativeTo(null); //TE RECORDAS DE BORRAR ESTO Y LA IMPORTACIÓN
+        loansWindow.setLocationRelativeTo(null);
+        dispose();                  //TE RECORDAS DE BORRAR ESTO Y LA IMPORTACIÓN
     }//GEN-LAST:event_btnLoansMouseClicked
+
+    private void btnReportsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReportsMouseClicked
+        // TODO add your handling code here:
+        reports reportsWindow = new reports();
+        reportsWindow.setVisible(true);
+        reportsWindow.setLocationRelativeTo(null);
+        dispose();                  //Y ESTO TAMBIÉN CON TODO E IMPORTACIONES
+    }//GEN-LAST:event_btnReportsMouseClicked
 
     /**
      * @param args the command line arguments
