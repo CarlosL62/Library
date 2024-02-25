@@ -263,10 +263,7 @@ public class StudentsForm extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Carnet", "Nombre", "Cod Carrera", "Fecha de nacimiento"
@@ -280,6 +277,7 @@ public class StudentsForm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable2.getTableHeader().setReorderingAllowed(false);
         tblStudents.setViewportView(jTable2);
 
         btnSearch.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
