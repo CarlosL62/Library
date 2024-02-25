@@ -33,7 +33,7 @@ public class loans extends javax.swing.JFrame {
         loansDesktopPane = new javax.swing.JDesktopPane();
         returnButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
-        cancelButton = new javax.swing.JButton();
+        deliverButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         loanTable = new javax.swing.JTable();
@@ -54,7 +54,12 @@ public class loans extends javax.swing.JFrame {
             }
         });
 
-        cancelButton.setBorder(null);
+        deliverButton.setBorder(null);
+        deliverButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deliverButtonMouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Candara", 1, 41)); // NOI18N
         jLabel1.setText("Prestamos");
@@ -64,11 +69,11 @@ public class loans extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Carné", "Libro", "Código", "Fecha", "Total"
+                "Nombre", "Carné", "Libro", "Código", "Fecha Inicio", "Fecha Fin", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -90,11 +95,12 @@ public class loans extends javax.swing.JFrame {
             loanTable.getColumnModel().getColumn(4).setPreferredWidth(75);
             loanTable.getColumnModel().getColumn(5).setResizable(false);
             loanTable.getColumnModel().getColumn(5).setPreferredWidth(75);
+            loanTable.getColumnModel().getColumn(6).setResizable(false);
         }
 
         loansDesktopPane.setLayer(returnButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         loansDesktopPane.setLayer(addButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        loansDesktopPane.setLayer(cancelButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        loansDesktopPane.setLayer(deliverButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         loansDesktopPane.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         loansDesktopPane.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -108,24 +114,25 @@ public class loans extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(loansDesktopPaneLayout.createSequentialGroup()
                         .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 473, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addGap(180, 180, 180)
+                        .addGap(313, 313, 313)
                         .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(deliverButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30))
         );
         loansDesktopPaneLayout.setVerticalGroup(
             loansDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loansDesktopPaneLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(loansDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addGroup(loansDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(loansDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(deliverButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -158,6 +165,13 @@ public class loans extends javax.swing.JFrame {
         mainWindow.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_returnButtonMouseClicked
+
+    private void deliverButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliverButtonMouseClicked
+        // TODO add your handling code here:
+        cancelLoan returnLoanWindow = new cancelLoan();
+        loansDesktopPane.add(returnLoanWindow);
+        returnLoanWindow.setVisible(true);
+    }//GEN-LAST:event_deliverButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -196,7 +210,7 @@ public class loans extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
-    private javax.swing.JButton cancelButton;
+    private javax.swing.JButton deliverButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable loanTable;
