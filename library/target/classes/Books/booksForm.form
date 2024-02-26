@@ -65,11 +65,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Estudiantes"/>
+            <Property name="text" type="java.lang.String" value="Libros"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="300" y="50" width="-1" height="-1"/>
+              <AbsoluteConstraints x="340" y="50" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -111,31 +111,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblNewStudent1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblNewStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="txtCarnet" min="-2" pref="150" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="lblNewStudent3" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jcbCodCarrera" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="txtName" min="-2" pref="462" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="lblNewStudent4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Component id="lblNewStudent8" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="txtdd" min="-2" pref="36" max="-2" attributes="0"/>
@@ -144,7 +121,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Component id="lblNewStudent6" min="-2" pref="10" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="txtmm" min="-2" pref="36" max="-2" attributes="0"/>
@@ -160,10 +137,39 @@
                                   </Group>
                                   <Component id="lblNewStudent11" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="136" max="32767" attributes="0"/>
+                              <EmptySpace pref="133" max="32767" attributes="0"/>
                               <Component id="btnAdd" min="-2" pref="210" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="lblNewStudent2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="txtAutor" min="-2" pref="250" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblNewStudent14" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtEditorial" min="-2" pref="200" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblNewStudent4" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblNewStudent1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtCodBook" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lblNewStudent3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="txtTitle" min="-2" pref="249" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="lblNewStudent13" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtNoCopies" min="-2" pref="50" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="lblNewStudent12" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -179,21 +185,20 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="lblNewStudent4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblNewStudent1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtName" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblNewStudent1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblNewStudent2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtCarnet" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="lblNewStudent3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jcbCodCarrera" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                      <Component id="lblNewStudent14" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtEditorial" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="txtAutor" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="txtdd" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                                   <Component id="lblNewStudent6" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -208,14 +213,23 @@
                                   <Component id="lblNewStudent10" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblNewStudent11" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtCodBook" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="lblNewStudent3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtTitle" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                      <Component id="lblNewStudent13" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtNoCopies" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnImport" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblNewStudent12" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -232,7 +246,7 @@
                   <Font name="Liberation Serif" size="24" style="0"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Images/addStudent.png"/>
+                  <Image iconType="3" name="/Images/addBook.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Agregar"/>
               </Properties>
@@ -251,17 +265,17 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nombre:"/>
+                <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtName">
+            <Component class="javax.swing.JTextField" name="txtTitle">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Liberation Serif" size="18" style="2"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtCarnet">
+            <Component class="javax.swing.JTextField" name="txtAutor">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Liberation Serif" size="18" style="2"/>
@@ -279,7 +293,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Carnet:"/>
+                <Property name="text" type="java.lang.String" value="Autor:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNewStudent3">
@@ -293,7 +307,8 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="C&#xf3;digo de carrera:"/>
+                <Property name="text" type="java.lang.String" value="T&#xed;tulo:"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtdd">
@@ -350,7 +365,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nuevo estudiante"/>
+                <Property name="text" type="java.lang.String" value="Nuevo libro"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNewStudent8">
@@ -364,7 +379,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Fecha de nacimiento:"/>
+                <Property name="text" type="java.lang.String" value="Fecha de publicaci&#xf3;n:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNewStudent9">
@@ -409,25 +424,6 @@
                 <Property name="text" type="java.lang.String" value="a&#xf1;o"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jcbCodCarrera">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Liberation Serif" size="14" style="0"/>
-                </Property>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="5">
-                    <StringItem index="0" value="1 - Ingenier&#xed;a"/>
-                    <StringItem index="1" value="2 - Medicina"/>
-                    <StringItem index="2" value="3 - Derecho"/>
-                    <StringItem index="3" value="4 - Arquitectura"/>
-                    <StringItem index="4" value="5 - Administraci&#xf3;n"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JLabel" name="lblNewStudent12">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -453,13 +449,59 @@
                 <Property name="text" type="java.lang.String" value="Importar"/>
               </Properties>
               <Events>
-<<<<<<< HEAD
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImportActionPerformed"/>
-=======
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAdd1MouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd1ActionPerformed"/>
->>>>>>> 75fc541f3e735c5827575119445244943a1fcd82
               </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtCodBook">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Serif" size="18" style="2"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNewStudent13">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Serif" size="18" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="No. Copias:"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtNoCopies">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Serif" size="18" style="2"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNewStudent14">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Serif" size="18" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Editorial:"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtEditorial">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Serif" size="18" style="2"/>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -471,7 +513,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="30" y="370" width="740" height="340"/>
+              <AbsoluteConstraints x="30" y="490" width="740" height="220"/>
             </Constraint>
           </Constraints>
 
@@ -521,7 +563,7 @@
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="tblStudents" pref="223" max="32767" attributes="0"/>
+                      <Component id="tblStudents" pref="103" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -564,9 +606,9 @@
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Nombre"/>
-                    <StringItem index="1" value="Carnet"/>
-                    <StringItem index="2" value="Cod Carrera"/>
+                    <StringItem index="0" value="Cod Libro"/>
+                    <StringItem index="1" value="Nombre"/>
+                    <StringItem index="2" value="Autor"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -585,15 +627,54 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable2">
+                <Component class="javax.swing.JTable" name="tblBooks">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
-                        <Column editable="false" title="Carnet" type="java.lang.Object"/>
-                        <Column editable="false" title="Nombre" type="java.lang.Object"/>
-                        <Column editable="false" title="Cod Carrera" type="java.lang.Object"/>
-                        <Column editable="false" title="Fecha de nacimiento" type="java.lang.Object"/>
+                      <Table columnCount="6" rowCount="4">
+                        <Column editable="false" title="C&#xf3;digo" type="java.lang.Object"/>
+                        <Column editable="false" title="T&#xed;tulo" type="java.lang.Object"/>
+                        <Column editable="false" title="No. Copias" type="java.lang.Object"/>
+                        <Column editable="false" title="Autor" type="java.lang.Object"/>
+                        <Column editable="true" title="Editorial" type="java.lang.Object"/>
+                        <Column editable="true" title="Fecha de publicaci&#xf3;n" type="java.lang.Object"/>
                       </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -608,6 +689,136 @@
                   <Image iconType="3" name="/Images/search.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel4">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="33" red="0" type="rgb"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="30" y="370" width="740" height="110"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblNewStudent15" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblNewStudent16" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtCodBookMod" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblNewStudent17" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtCodBookMod1" min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace pref="59" max="32767" attributes="0"/>
+                              <Component id="btnSearch1" min="-2" pref="210" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="lblNewStudent15" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblNewStudent16" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCodBookMod" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="btnSearch1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                              <Component id="lblNewStudent17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCodBookMod1" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblNewStudent15">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Serif" size="24" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Modificar No. Copias"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNewStudent16">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Serif" size="18" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="C&#xf3;digo del libro:"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtCodBookMod">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Serif" size="18" style="2"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSearch1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Serif" size="24" style="0"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/modify.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Modificar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtCodBookMod1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Serif" size="18" style="2"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNewStudent17">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Serif" size="18" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Nuevo No. Copias:"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
           </SubComponents>

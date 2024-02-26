@@ -174,22 +174,15 @@ public class StudentsForm extends javax.swing.JFrame {
         lblNewStudent12.setForeground(new java.awt.Color(255, 255, 255));
         lblNewStudent12.setText("Importar desde un archivo de texto");
 
-<<<<<<< HEAD
         btnImport.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
         btnImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/importData.png"))); // NOI18N
         btnImport.setText("Importar");
-        btnImport.addActionListener(new java.awt.event.ActionListener() {
-=======
-        btnAdd1.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
-        btnAdd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/importData.png"))); // NOI18N
-        btnAdd1.setText("Importar");
-        btnAdd1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnImport.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAdd1MouseClicked(evt);
             }
         });
-        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
->>>>>>> 75fc541f3e735c5827575119445244943a1fcd82
+        btnImport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnImportActionPerformed(evt);
             }
