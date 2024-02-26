@@ -41,8 +41,8 @@ public class booksForm extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         lblNewStudent1 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        txtCarnet = new javax.swing.JTextField();
+        txtTitle = new javax.swing.JTextField();
+        txtAutor = new javax.swing.JTextField();
         lblNewStudent2 = new javax.swing.JLabel();
         lblNewStudent3 = new javax.swing.JLabel();
         txtdd = new javax.swing.JTextField();
@@ -56,12 +56,12 @@ public class booksForm extends javax.swing.JFrame {
         lblNewStudent10 = new javax.swing.JLabel();
         lblNewStudent11 = new javax.swing.JLabel();
         lblNewStudent12 = new javax.swing.JLabel();
-        btnAdd1 = new javax.swing.JButton();
-        txtName1 = new javax.swing.JTextField();
+        btnImport = new javax.swing.JButton();
+        txtCodBook = new javax.swing.JTextField();
         lblNewStudent13 = new javax.swing.JLabel();
-        txtName2 = new javax.swing.JTextField();
+        txtNoCopies = new javax.swing.JTextField();
         lblNewStudent14 = new javax.swing.JLabel();
-        txtName3 = new javax.swing.JTextField();
+        txtEditorial = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         lblNewStudent = new javax.swing.JLabel();
         lblNewStudent5 = new javax.swing.JLabel();
@@ -70,6 +70,13 @@ public class booksForm extends javax.swing.JFrame {
         tblStudents = new javax.swing.JScrollPane();
         tblBooks = new javax.swing.JTable();
         btnSearch = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        lblNewStudent15 = new javax.swing.JLabel();
+        lblNewStudent16 = new javax.swing.JLabel();
+        txtCodBookMod = new javax.swing.JTextField();
+        btnSearch1 = new javax.swing.JButton();
+        txtCodBookMod1 = new javax.swing.JTextField();
+        lblNewStudent17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -97,7 +104,7 @@ public class booksForm extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 51, 102));
 
         btnAdd.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
-        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/addStudent.png"))); // NOI18N
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/addBook.png"))); // NOI18N
         btnAdd.setText("Agregar");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,9 +117,9 @@ public class booksForm extends javax.swing.JFrame {
         lblNewStudent1.setForeground(new java.awt.Color(255, 255, 255));
         lblNewStudent1.setText("Código:");
 
-        txtName.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+        txtTitle.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
 
-        txtCarnet.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+        txtAutor.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
 
         lblNewStudent2.setBackground(new java.awt.Color(255, 255, 255));
         lblNewStudent2.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
@@ -169,16 +176,16 @@ public class booksForm extends javax.swing.JFrame {
         lblNewStudent12.setForeground(new java.awt.Color(255, 255, 255));
         lblNewStudent12.setText("Importar desde un archivo de texto");
 
-        btnAdd1.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
-        btnAdd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/importData.png"))); // NOI18N
-        btnAdd1.setText("Importar");
-        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+        btnImport.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        btnImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/importData.png"))); // NOI18N
+        btnImport.setText("Importar");
+        btnImport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd1ActionPerformed(evt);
+                btnImportActionPerformed(evt);
             }
         });
 
-        txtName1.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+        txtCodBook.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
 
         lblNewStudent13.setBackground(new java.awt.Color(255, 255, 255));
         lblNewStudent13.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
@@ -186,7 +193,7 @@ public class booksForm extends javax.swing.JFrame {
         lblNewStudent13.setText("No. Copias:");
         lblNewStudent13.setToolTipText("");
 
-        txtName2.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+        txtNoCopies.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
 
         lblNewStudent14.setBackground(new java.awt.Color(255, 255, 255));
         lblNewStudent14.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
@@ -194,7 +201,7 @@ public class booksForm extends javax.swing.JFrame {
         lblNewStudent14.setText("Editorial:");
         lblNewStudent14.setToolTipText("");
 
-        txtName3.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+        txtEditorial.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -229,11 +236,11 @@ public class booksForm extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(lblNewStudent2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblNewStudent14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtName3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(103, 103, 103))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,21 +248,21 @@ public class booksForm extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(lblNewStudent1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCodBook, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblNewStudent3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblNewStudent13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtNoCopies, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblNewStudent12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -270,10 +277,10 @@ public class booksForm extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNewStudent2)
-                            .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblNewStudent14)
-                                .addComponent(txtName3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(5, 5, 5)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtdd, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -290,17 +297,17 @@ public class booksForm extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCodBook, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNewStudent3)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblNewStudent13)
-                                .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtNoCopies, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAdd)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd1)
+                    .addComponent(btnImport)
                     .addComponent(lblNewStudent12))
                 .addContainerGap())
         );
@@ -387,11 +394,78 @@ public class booksForm extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(btnSearch)))
                 .addGap(18, 18, 18)
-                .addComponent(tblStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                .addComponent(tblStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 740, 340));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 740, 220));
+
+        jPanel4.setBackground(new java.awt.Color(0, 51, 102));
+
+        lblNewStudent15.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent15.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        lblNewStudent15.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent15.setText("Modificar No. Copias");
+
+        lblNewStudent16.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent16.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
+        lblNewStudent16.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent16.setText("Código del libro:");
+        lblNewStudent16.setToolTipText("");
+
+        txtCodBookMod.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+
+        btnSearch1.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        btnSearch1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/modify.png"))); // NOI18N
+        btnSearch1.setText("Modificar");
+
+        txtCodBookMod1.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+
+        lblNewStudent17.setBackground(new java.awt.Color(255, 255, 255));
+        lblNewStudent17.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
+        lblNewStudent17.setForeground(new java.awt.Color(255, 255, 255));
+        lblNewStudent17.setText("Nuevo No. Copias:");
+        lblNewStudent17.setToolTipText("");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(lblNewStudent15)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(lblNewStudent16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCodBookMod, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblNewStudent17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCodBookMod1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addComponent(btnSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(lblNewStudent15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNewStudent16)
+                    .addComponent(txtCodBookMod, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch1)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblNewStudent17)
+                        .addComponent(txtCodBookMod1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 740, 110));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -421,9 +495,9 @@ public class booksForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+    private void btnImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdd1ActionPerformed
+    }//GEN-LAST:event_btnImportActionPerformed
 
     /**
      * @param args the command line arguments
@@ -465,12 +539,14 @@ public class booksForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnImport;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnSearch1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JComboBox<String> jcbFilter;
     private javax.swing.JLabel lblNewStudent;
     private javax.swing.JLabel lblNewStudent1;
@@ -479,6 +555,9 @@ public class booksForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblNewStudent12;
     private javax.swing.JLabel lblNewStudent13;
     private javax.swing.JLabel lblNewStudent14;
+    private javax.swing.JLabel lblNewStudent15;
+    private javax.swing.JLabel lblNewStudent16;
+    private javax.swing.JLabel lblNewStudent17;
     private javax.swing.JLabel lblNewStudent2;
     private javax.swing.JLabel lblNewStudent3;
     private javax.swing.JLabel lblNewStudent4;
@@ -490,12 +569,14 @@ public class booksForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblStudents;
     private javax.swing.JTable tblBooks;
     private javax.swing.JScrollPane tblStudents;
-    private javax.swing.JTextField txtCarnet;
+    private javax.swing.JTextField txtAutor;
+    private javax.swing.JTextField txtCodBook;
+    private javax.swing.JTextField txtCodBookMod;
+    private javax.swing.JTextField txtCodBookMod1;
+    private javax.swing.JTextField txtEditorial;
     private javax.swing.JTextField txtFilter;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtName1;
-    private javax.swing.JTextField txtName2;
-    private javax.swing.JTextField txtName3;
+    private javax.swing.JTextField txtNoCopies;
+    private javax.swing.JTextField txtTitle;
     private javax.swing.JTextField txtdd;
     private javax.swing.JTextField txtmm;
     private javax.swing.JTextField txtyyyy;

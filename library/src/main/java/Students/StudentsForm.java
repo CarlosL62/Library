@@ -57,7 +57,7 @@ public class StudentsForm extends javax.swing.JFrame {
         lblNewStudent11 = new javax.swing.JLabel();
         jcbCodCarrera = new javax.swing.JComboBox<>();
         lblNewStudent12 = new javax.swing.JLabel();
-        btnAdd1 = new javax.swing.JButton();
+        btnImport = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblNewStudent = new javax.swing.JLabel();
         lblNewStudent5 = new javax.swing.JLabel();
@@ -167,12 +167,12 @@ public class StudentsForm extends javax.swing.JFrame {
         lblNewStudent12.setForeground(new java.awt.Color(255, 255, 255));
         lblNewStudent12.setText("Importar desde un archivo de texto");
 
-        btnAdd1.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
-        btnAdd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/importData.png"))); // NOI18N
-        btnAdd1.setText("Importar");
-        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
+        btnImport.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        btnImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/importData.png"))); // NOI18N
+        btnImport.setText("Importar");
+        btnImport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdd1ActionPerformed(evt);
+                btnImportActionPerformed(evt);
             }
         });
 
@@ -227,7 +227,7 @@ public class StudentsForm extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblNewStudent12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -266,7 +266,7 @@ public class StudentsForm extends javax.swing.JFrame {
                         .addComponent(btnAdd)
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd1)
+                    .addComponent(btnImport)
                     .addComponent(lblNewStudent12))
                 .addContainerGap())
         );
@@ -387,9 +387,9 @@ public class StudentsForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
+    private void btnImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdd1ActionPerformed
+    }//GEN-LAST:event_btnImportActionPerformed
 
     /**
      * @param args the command line arguments
@@ -428,8 +428,8 @@ public class StudentsForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnImport;
     private javax.swing.JButton btnSearch;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
