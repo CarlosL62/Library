@@ -4,9 +4,6 @@
  */
 package com.mycompany.library;
 
-import Books.booksForm;
-import Students.StudentsForm;
-
 /**
  *
  * @author carlos
@@ -150,17 +147,14 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBooksActionPerformed
-        booksForm books = new booksForm(this);
-        books.setVisible(true);
-        books.setLocationRelativeTo(null);
-        this.dispose();
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnBooksActionPerformed
 
     private void btnStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentsActionPerformed
         Students.StudentsForm students = new Students.StudentsForm(this);
+        this.dispose();
         students.setVisible(true);
         students.setLocationRelativeTo(null);
-        this.dispose();
     }//GEN-LAST:event_btnStudentsActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed

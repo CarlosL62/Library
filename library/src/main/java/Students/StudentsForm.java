@@ -64,7 +64,7 @@ public class StudentsForm extends javax.swing.JFrame {
         lblNewStudent11 = new javax.swing.JLabel();
         jcbCodCarrera = new javax.swing.JComboBox<>();
         lblNewStudent12 = new javax.swing.JLabel();
-        btnImport = new javax.swing.JButton();
+        btnAdd1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lblNewStudent = new javax.swing.JLabel();
         lblNewStudent5 = new javax.swing.JLabel();
@@ -174,17 +174,17 @@ public class StudentsForm extends javax.swing.JFrame {
         lblNewStudent12.setForeground(new java.awt.Color(255, 255, 255));
         lblNewStudent12.setText("Importar desde un archivo de texto");
 
-        btnImport.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
-        btnImport.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/importData.png"))); // NOI18N
-        btnImport.setText("Importar");
-        btnImport.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnAdd1.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        btnAdd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/importData.png"))); // NOI18N
+        btnAdd1.setText("Importar");
+        btnAdd1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnAdd1MouseClicked(evt);
             }
         });
-        btnImport.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImportActionPerformed(evt);
+                btnAdd1ActionPerformed(evt);
             }
         });
 
@@ -239,7 +239,7 @@ public class StudentsForm extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblNewStudent12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -278,7 +278,7 @@ public class StudentsForm extends javax.swing.JFrame {
                         .addComponent(btnAdd)
                         .addGap(18, 18, 18)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnImport)
+                    .addComponent(btnAdd1)
                     .addComponent(lblNewStudent12))
                 .addContainerGap())
         );
@@ -305,10 +305,7 @@ public class StudentsForm extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Carnet", "Nombre", "Cod Carrera", "Fecha de nacimiento"
@@ -322,6 +319,7 @@ public class StudentsForm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable2.getTableHeader().setReorderingAllowed(false);
         tblStudents.setViewportView(jTable2);
 
         btnSearch.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
@@ -399,9 +397,9 @@ public class StudentsForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void btnImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportActionPerformed
+    private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnImportActionPerformed
+    }//GEN-LAST:event_btnAdd1ActionPerformed
 
     private void btnAdd1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdd1MouseClicked
         // TODO add your handling code here:
@@ -467,8 +465,8 @@ public class StudentsForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnImport;
     private javax.swing.JButton btnSearch;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
