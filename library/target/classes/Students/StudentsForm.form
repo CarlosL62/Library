@@ -100,7 +100,11 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+<<<<<<< HEAD
               <AbsoluteConstraints x="30" y="130" width="740" height="220"/>
+=======
+              <AbsoluteConstraints x="30" y="110" width="740" height="250"/>
+>>>>>>> main
             </Constraint>
           </Constraints>
 
@@ -110,8 +114,12 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< HEAD
                           <Component id="btnAdd" alignment="1" min="-2" pref="210" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
+=======
+                          <Group type="102" alignment="0" attributes="0">
+>>>>>>> main
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -131,6 +139,7 @@
                                       </Group>
                                   </Group>
                                   <Component id="lblNewStudent4" alignment="0" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
@@ -161,6 +170,46 @@
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="180" max="32767" attributes="0"/>
+=======
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblNewStudent8" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="txtdd" min="-2" pref="36" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblNewStudent10" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblNewStudent6" min="-2" pref="10" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="txtmm" min="-2" pref="36" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblNewStudent9" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblNewStudent7" min="-2" pref="10" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtyyyy" min="-2" pref="55" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblNewStudent11" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="136" max="32767" attributes="0"/>
+                              <Component id="btnAdd" min="-2" pref="210" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="lblNewStudent12" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnAdd1" min="-2" pref="210" max="-2" attributes="0"/>
+>>>>>>> main
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -172,6 +221,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="lblNewStudent4" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblNewStudent1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -201,6 +251,48 @@
                               <Component id="lblNewStudent10" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblNewStudent11" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+=======
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblNewStudent1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtName" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblNewStudent2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCarnet" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="lblNewStudent3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jcbCodCarrera" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtdd" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="lblNewStudent6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtmm" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="lblNewStudent7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtyyyy" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="lblNewStudent8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblNewStudent9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNewStudent10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNewStudent11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnAdd1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNewStudent12" alignment="3" min="-2" max="-2" attributes="0"/>
+>>>>>>> main
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -410,6 +502,37 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
+<<<<<<< HEAD
+=======
+            <Component class="javax.swing.JLabel" name="lblNewStudent12">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Serif" size="18" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Importar desde un archivo de texto"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnAdd1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Liberation Serif" size="24" style="0"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Images/importData.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Importar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd1ActionPerformed"/>
+              </Events>
+            </Component>
+>>>>>>> main
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel3">
