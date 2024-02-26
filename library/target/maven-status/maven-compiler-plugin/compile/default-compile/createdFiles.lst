@@ -2,7 +2,6 @@ com\mycompany\library\Menu$3.class
 com\mycompany\library\GUI\loans$2.class
 com\mycompany\library\GUI\reportsWindows\dayDeliveries$1.class
 Students\StudentsForm$4.class
-<<<<<<< HEAD
 com\mycompany\library\GUI\reportsWindows\currentLoans.class
 com\mycompany\library\GUI\reportsWindows\lateBooks.class
 com\mycompany\library\GUI\addLoan$1.class
@@ -13,6 +12,7 @@ com\mycompany\library\GUI\loans$5.class
 com\mycompany\library\GUI\reportsWindows\profits$1.class
 com\mycompany\library\GUI\reportsWindows\dayDeliveries.class
 com\mycompany\library\Menu$4.class
+Students\StudentsForm$5.class
 com\mycompany\library\GUI\cancelLoan$1.class
 com\mycompany\library\Menu$2.class
 com\mycompany\library\GUI\loans.class
@@ -27,26 +27,13 @@ com\mycompany\library\GUI\loans$4.class
 com\mycompany\library\GUI\reportsWindows\loanedBooks.class
 com\mycompany\library\Menu$1.class
 com\mycompany\library\GUI\reports$1.class
-=======
-com\mycompany\library\Menu$5.class
-com\mycompany\library\Menu$1.class
->>>>>>> main
 Students\StudentsForm$2.class
 com\mycompany\library\GUI\reportsWindows\loanedBooks$1.class
 Students\StudentsForm.class
-<<<<<<< HEAD
 com\mycompany\library\GUI\reportsWindows\careerLoans.class
 Students\StudentsForm$3.class
 com\mycompany\library\Menu.class
 com\mycompany\library\GUI\reports.class
-com\mycompany\library\GUI\loans$1.class
-=======
-com\mycompany\library\Menu$4.class
-Students\StudentsForm$5.class
-com\mycompany\library\Menu$2.class
-Students\StudentsForm$3.class
-com\mycompany\library\Menu.class
-Students\StudentsForm$1.class
 Students\StudentsForm$6.class
->>>>>>> main
+com\mycompany\library\GUI\loans$1.class
 com\mycompany\library\Library.class
