@@ -5,12 +5,19 @@
 package Students;
 
 import com.mycompany.library.Menu;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author carlos
  */
 public class StudentsForm extends javax.swing.JFrame {
+    
+    String archiveContent;
 
     /**
      * Creates new form StudentsForm
@@ -19,7 +26,7 @@ public class StudentsForm extends javax.swing.JFrame {
         initComponents();
         menu = this.menu;
     }
-    
+
     Menu menu = new Menu();
 
     private StudentsForm() {
@@ -170,6 +177,11 @@ public class StudentsForm extends javax.swing.JFrame {
         btnAdd1.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
         btnAdd1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/importData.png"))); // NOI18N
         btnAdd1.setText("Importar");
+        btnAdd1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAdd1MouseClicked(evt);
+            }
+        });
         btnAdd1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAdd1ActionPerformed(evt);
@@ -390,6 +402,33 @@ public class StudentsForm extends javax.swing.JFrame {
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAdd1ActionPerformed
+
+    private void btnAdd1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAdd1MouseClicked
+        // TODO add your handling code here:
+
+        FileReader archive;
+        BufferedReader reader;
+
+        JFileChooser searchFile = new JFileChooser();
+        searchFile.showOpenDialog(this);
+        File archivePath = searchFile.getSelectedFile();
+
+        try {
+            archive = new FileReader(archivePath);
+
+            if (archive.ready()) {
+                archiveContent = null;
+                reader = new BufferedReader(archive);
+                while ((archiveContent = reader.readLine()) != null) {
+                    System.out.println(archiveContent);
+                }
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "El archivo se encuentra vacío");
+            }
+        } catch (Exception e) {
+            System.out.println("Error " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnAdd1MouseClicked
 
     /**
      * @param args the command line arguments
