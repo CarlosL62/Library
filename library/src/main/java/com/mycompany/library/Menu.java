@@ -4,8 +4,8 @@
  */
 package com.mycompany.library;
 
-import Books.booksForm;
-import Students.StudentsForm;
+import com.mycompany.library.books.booksForm;
+import com.mycompany.library.students.StudentsForm;
 
 /**
  *
@@ -38,6 +38,7 @@ public class Menu extends javax.swing.JFrame {
         btnStudents = new javax.swing.JButton();
         btnLoans = new javax.swing.JButton();
         btnReports = new javax.swing.JButton();
+        btnImportData = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -51,14 +52,14 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, -1));
 
         btnExit.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/exit.png"))); // NOI18N
         btnExit.setText("Salir");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 730, 210, -1));
+        jPanel1.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 730, 210, -1));
 
         jLabel2.setFont(new java.awt.Font("Liberation Serif", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -68,7 +69,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 51, 102));
 
         btnBooks.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
-        btnBooks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/book.png"))); // NOI18N
+        btnBooks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/book.png"))); // NOI18N
         btnBooks.setText("Libros");
         btnBooks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +78,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnStudents.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
-        btnStudents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/students.png"))); // NOI18N
+        btnStudents.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/students.png"))); // NOI18N
         btnStudents.setText("Estudiantes");
         btnStudents.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,11 +87,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnLoans.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
-        btnLoans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loan.png"))); // NOI18N
+        btnLoans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/loan.png"))); // NOI18N
         btnLoans.setText("Préstamos");
 
         btnReports.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
-        btnReports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/report.png"))); // NOI18N
+        btnReports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/report.png"))); // NOI18N
         btnReports.setText("Reportes");
         btnReports.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +132,16 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 660, 180));
 
+        btnImportData.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        btnImportData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/importData.png"))); // NOI18N
+        btnImportData.setText("Importar datos");
+        btnImportData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImportDataActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnImportData, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 630, 230, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,7 +168,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBooksActionPerformed
 
     private void btnStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentsActionPerformed
-        Students.StudentsForm students = new Students.StudentsForm(this);
+        com.mycompany.library.students.StudentsForm students = new com.mycompany.library.students.StudentsForm(this);
         students.setVisible(true);
         students.setLocationRelativeTo(null);
         this.dispose();
@@ -170,6 +181,10 @@ public class Menu extends javax.swing.JFrame {
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReportsActionPerformed
+
+    private void btnImportDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnImportDataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,6 +224,7 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBooks;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnImportData;
     private javax.swing.JButton btnLoans;
     private javax.swing.JButton btnReports;
     private javax.swing.JButton btnStudents;
