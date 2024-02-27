@@ -453,12 +453,7 @@
                 <Property name="text" type="java.lang.String" value="Importar"/>
               </Properties>
               <Events>
-<<<<<<< HEAD
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImportActionPerformed"/>
-=======
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAdd1MouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd1ActionPerformed"/>
->>>>>>> 75fc541f3e735c5827575119445244943a1fcd82
               </Events>
             </Component>
           </SubComponents>
