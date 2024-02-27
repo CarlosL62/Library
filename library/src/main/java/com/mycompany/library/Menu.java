@@ -38,7 +38,7 @@ public class Menu extends javax.swing.JFrame {
         btnStudents = new javax.swing.JButton();
         btnLoans = new javax.swing.JButton();
         btnReports = new javax.swing.JButton();
-        btnExit1 = new javax.swing.JButton();
+        btnImportData = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -132,15 +132,15 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, 660, 180));
 
-        btnExit1.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
-        btnExit1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/importData.png"))); // NOI18N
-        btnExit1.setText("Importar datos");
-        btnExit1.addActionListener(new java.awt.event.ActionListener() {
+        btnImportData.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        btnImportData.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/importData.png"))); // NOI18N
+        btnImportData.setText("Importar datos");
+        btnImportData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExit1ActionPerformed(evt);
+                btnImportDataActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 630, 230, -1));
+        jPanel1.add(btnImportData, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 630, 230, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,9 +182,9 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnReportsActionPerformed
 
-    private void btnExit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExit1ActionPerformed
+    private void btnImportDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportDataActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnExit1ActionPerformed
+    }//GEN-LAST:event_btnImportDataActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,7 +224,7 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBooks;
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnExit1;
+    private javax.swing.JButton btnImportData;
     private javax.swing.JButton btnLoans;
     private javax.swing.JButton btnReports;
     private javax.swing.JButton btnStudents;
