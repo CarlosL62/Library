@@ -5,6 +5,8 @@
 package com.mycompany.library;
 
 import com.mycompany.library.books.booksForm;
+import com.mycompany.library.loans.loans;
+import com.mycompany.library.reports.reports;
 import com.mycompany.library.students.StudentsForm;
 
 /**
@@ -89,6 +91,11 @@ public class Menu extends javax.swing.JFrame {
         btnLoans.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
         btnLoans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/loan.png"))); // NOI18N
         btnLoans.setText("Préstamos");
+        btnLoans.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoansActionPerformed(evt);
+            }
+        });
 
         btnReports.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
         btnReports.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/report.png"))); // NOI18N
@@ -180,11 +187,24 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
         // TODO add your handling code here:
+        reports reportsForm = new reports();
+        reportsForm.setVisible(true);
+        reportsForm.setLocationRelativeTo(null);
+        this.dispose();
+
     }//GEN-LAST:event_btnReportsActionPerformed
 
     private void btnImportDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportDataActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnImportDataActionPerformed
+
+    private void btnLoansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoansActionPerformed
+        // TODO add your handling code here:
+        loans loansForm = new loans();
+        loansForm.setVisible(true);
+        loansForm.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnLoansActionPerformed
 
     /**
      * @param args the command line arguments
