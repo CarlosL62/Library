@@ -154,7 +154,7 @@
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="lblNewStudent3" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jcbCodCarrera" max="32767" attributes="0"/>
+                                              <Component id="jcbCodeCareer" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="txtName" min="-2" pref="462" max="-2" attributes="0"/>
                                       </Group>
@@ -183,7 +183,7 @@
                           <Component id="lblNewStudent2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtCarnet" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           <Component id="lblNewStudent3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jcbCodCarrera" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jcbCodeCareer" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -390,7 +390,7 @@
                 <Property name="text" type="java.lang.String" value="a&#xf1;o"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jcbCodCarrera">
+            <Component class="javax.swing.JComboBox" name="jcbCodeCareer">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Liberation Serif" size="14" style="0"/>
