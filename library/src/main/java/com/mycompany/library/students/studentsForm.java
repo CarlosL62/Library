@@ -6,20 +6,22 @@ package com.mycompany.library.students;
 
 import com.mycompany.library.Menu;
 import com.mycompany.library.archives.dataBase;
+import com.mycompany.library.errorManagement.errorManagement;
 import java.time.*;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author carlos
  */
-public class StudentsForm extends javax.swing.JFrame {
+public class studentsForm extends javax.swing.JFrame {
 
     /**
      * Creates new form StudentsForm
      * @param menu
      * @param dataBase
      */
-    public StudentsForm(Menu menu, dataBase dataBase) {
+    public studentsForm(Menu menu, dataBase dataBase) {
         initComponents();
         this.menu = menu;
         this.dataBase = dataBase; //Loading dataBase
@@ -29,8 +31,9 @@ public class StudentsForm extends javax.swing.JFrame {
     private dataBase dataBase;
     private student newStudent;
     private LocalDate localDate;
-
-    private StudentsForm() {
+    private errorManagement errorM = new errorManagement();
+    
+    private studentsForm() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -362,18 +365,43 @@ public class StudentsForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // Button to save the new student data
+        // button to save the new student data
         newStudent = new student();
-        newStudent.setName(txtName.getText());
-        newStudent.setCarnet(Integer.parseInt(txtCarnet.getText()));
-        newStudent.setCodeCareer(jcbCodeCareer.getSelectedIndex()+1);
-        localDate = LocalDate.of(Integer.parseInt(txtyyyy.getText()), Integer.parseInt(txtmm.getText()), Integer.parseInt(txtdd.getText()));
-        newStudent.setBirthday(localDate);
-        dataBase.getStudents().addNodo(newStudent);
-        System.out.println(newStudent.getName());
-        System.out.println(localDate.getYear());
+
+        if (errorM.isText(txtName.getText()) && errorM.isInt(txtCarnet.getText()) && (errorM.isDate(txtyyyy.getText(), txtmm.getText(), txtdd.getText()) || (txtyyyy.getText().equals("") && txtmm.getText().equals("") && txtdd.getText().equals("")))) {
+            newStudent.setName(txtName.getText());
+            newStudent.setCarnet(Integer.parseInt(txtCarnet.getText()));
+            newStudent.setCodeCareer(jcbCodeCareer.getSelectedIndex() + 1);
+            try {
+                localDate = LocalDate.of(Integer.parseInt(txtyyyy.getText()), Integer.parseInt(txtmm.getText()), Integer.parseInt(txtdd.getText()));
+                newStudent.setBirthday(localDate);
+            } catch (Exception e) {
+                newStudent.setBirthday(null);
+            }
+            
+            dataBase.getStudents().addNodo(newStudent);
+            
+            // confirmation message
+            JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+            cleanScreen();
+        } else {
+            // error message
+            JOptionPane.showMessageDialog(null, "Verifique que todos los campos sean correctos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnAddActionPerformed
 
+    // cleans all the textbox and resets the combobox
+    private void cleanScreen(){
+        txtName.setText("");
+        txtCarnet.setText("");
+        jcbCodeCareer.setSelectedIndex(0);
+        txtdd.setText("");
+        txtmm.setText("");
+        txtyyyy.setText("");
+        jcbFilter.setSelectedIndex(0);
+        txtFilter.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -391,20 +419,21 @@ public class StudentsForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StudentsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(studentsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StudentsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(studentsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StudentsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(studentsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StudentsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(studentsForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StudentsForm().setVisible(true);
+                new studentsForm().setVisible(true);
             }
         });
     }

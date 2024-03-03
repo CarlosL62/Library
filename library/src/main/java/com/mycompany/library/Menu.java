@@ -10,7 +10,7 @@ import com.mycompany.library.books.booksForm;
 import com.mycompany.library.lists.listException;
 import com.mycompany.library.loans.loans;
 import com.mycompany.library.reports.reports;
-import com.mycompany.library.students.StudentsForm;
+import com.mycompany.library.students.studentsForm;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -198,7 +198,7 @@ public class Menu extends javax.swing.JFrame {
         } catch (listException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        StudentsForm students = new StudentsForm((Menu) this, dataBase);
+        studentsForm students = new studentsForm((Menu) this, dataBase);
         students.setVisible(true);
         students.setLocationRelativeTo(null);
         this.setVisible(false);
