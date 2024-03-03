@@ -4,10 +4,16 @@
  */
 package com.mycompany.library;
 
+import com.mycompany.library.archives.archive;
+import com.mycompany.library.archives.dataBase;
 import com.mycompany.library.books.booksForm;
+import com.mycompany.library.lists.listException;
 import com.mycompany.library.loans.loans;
 import com.mycompany.library.reports.reports;
 import com.mycompany.library.students.StudentsForm;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,8 +26,17 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        archive = new archive();
+        try {
+            dataBase = archive.startdb(); //Loading database
+        } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
+    private dataBase dataBase;
+    private archive archive;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -171,17 +186,26 @@ public class Menu extends javax.swing.JFrame {
         booksForm books = new booksForm(this);
         books.setVisible(true);
         books.setLocationRelativeTo(null);
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_btnBooksActionPerformed
 
     private void btnStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentsActionPerformed
-        com.mycompany.library.students.StudentsForm students = new com.mycompany.library.students.StudentsForm(this);
+        try {
+            System.out.println(dataBase.getStudents().getValue(0).getName());
+            System.out.println(dataBase.getStudents().getValue(0).getCarnet());
+            System.out.println(dataBase.getStudents().getValue(0).getCodeCareer());
+            System.out.println(dataBase.getStudents().getValue(0).getBirthday().getYear()+""+dataBase.getStudents().getValue(0).getBirthday().getMonthValue()+""+dataBase.getStudents().getValue(0).getBirthday().getDayOfMonth());
+        } catch (listException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        StudentsForm students = new StudentsForm((Menu) this, dataBase);
         students.setVisible(true);
         students.setLocationRelativeTo(null);
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_btnStudentsActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        archive.savedb(dataBase);
         this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 

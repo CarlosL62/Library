@@ -5,6 +5,8 @@
 package com.mycompany.library.students;
 
 import com.mycompany.library.Menu;
+import com.mycompany.library.archives.dataBase;
+import java.time.*;
 
 /**
  *
@@ -14,13 +16,19 @@ public class StudentsForm extends javax.swing.JFrame {
 
     /**
      * Creates new form StudentsForm
+     * @param menu
+     * @param dataBase
      */
-    public StudentsForm(Menu menu) {
+    public StudentsForm(Menu menu, dataBase dataBase) {
         initComponents();
-        menu = this.menu;
+        this.menu = menu;
+        this.dataBase = dataBase; //Loading dataBase
     }
     
-    Menu menu = new Menu();
+    private Menu menu;
+    private dataBase dataBase;
+    private student newStudent;
+    private LocalDate localDate;
 
     private StudentsForm() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -55,7 +63,7 @@ public class StudentsForm extends javax.swing.JFrame {
         lblNewStudent9 = new javax.swing.JLabel();
         lblNewStudent10 = new javax.swing.JLabel();
         lblNewStudent11 = new javax.swing.JLabel();
-        jcbCodCarrera = new javax.swing.JComboBox<>();
+        jcbCodeCareer = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         lblNewStudent = new javax.swing.JLabel();
         lblNewStudent5 = new javax.swing.JLabel();
@@ -157,8 +165,8 @@ public class StudentsForm extends javax.swing.JFrame {
         lblNewStudent11.setForeground(new java.awt.Color(255, 255, 255));
         lblNewStudent11.setText("año");
 
-        jcbCodCarrera.setFont(new java.awt.Font("Liberation Serif", 0, 14)); // NOI18N
-        jcbCodCarrera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 - Ingeniería", "2 - Medicina", "3 - Derecho", "4 - Arquitectura", "5 - Administración" }));
+        jcbCodeCareer.setFont(new java.awt.Font("Liberation Serif", 0, 14)); // NOI18N
+        jcbCodeCareer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 - Ingeniería", "2 - Medicina", "3 - Derecho", "4 - Arquitectura", "5 - Administración" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -203,7 +211,7 @@ public class StudentsForm extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(lblNewStudent3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jcbCodCarrera, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jcbCodeCareer, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(lblNewStudent4))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -223,7 +231,7 @@ public class StudentsForm extends javax.swing.JFrame {
                     .addComponent(lblNewStudent2)
                     .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNewStudent3)
-                    .addComponent(jcbCodCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbCodeCareer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtdd, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -354,7 +362,16 @@ public class StudentsForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+        // Button to save the new student data
+        newStudent = new student();
+        newStudent.setName(txtName.getText());
+        newStudent.setCarnet(Integer.parseInt(txtCarnet.getText()));
+        newStudent.setCodeCareer(jcbCodeCareer.getSelectedIndex()+1);
+        localDate = LocalDate.of(Integer.parseInt(txtyyyy.getText()), Integer.parseInt(txtmm.getText()), Integer.parseInt(txtdd.getText()));
+        newStudent.setBirthday(localDate);
+        dataBase.getStudents().addNodo(newStudent);
+        System.out.println(newStudent.getName());
+        System.out.println(localDate.getYear());
     }//GEN-LAST:event_btnAddActionPerformed
 
     /**
@@ -400,7 +417,7 @@ public class StudentsForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTable jTable2;
-    private javax.swing.JComboBox<String> jcbCodCarrera;
+    private javax.swing.JComboBox<String> jcbCodeCareer;
     private javax.swing.JComboBox<String> jcbFilter;
     private javax.swing.JLabel lblNewStudent;
     private javax.swing.JLabel lblNewStudent1;
