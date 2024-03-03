@@ -190,14 +190,6 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBooksActionPerformed
 
     private void btnStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentsActionPerformed
-        try {
-            System.out.println(dataBase.getStudents().getValue(0).getName());
-            System.out.println(dataBase.getStudents().getValue(0).getCarnet());
-            System.out.println(dataBase.getStudents().getValue(0).getCodeCareer());
-            System.out.println(dataBase.getStudents().getValue(0).getBirthday().getYear()+""+dataBase.getStudents().getValue(0).getBirthday().getMonthValue()+""+dataBase.getStudents().getValue(0).getBirthday().getDayOfMonth());
-        } catch (listException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
         studentsForm students = new studentsForm((Menu) this, dataBase);
         students.setVisible(true);
         students.setLocationRelativeTo(null);
