@@ -6,6 +6,7 @@ package com.mycompany.library.archives;
 
 import com.mycompany.library.books.book;
 import com.mycompany.library.lists.*;
+import com.mycompany.library.loans.loan;
 import com.mycompany.library.students.student;
 import java.io.Serializable;
 
@@ -18,6 +19,7 @@ public class dataBase implements Serializable{
     
     private genericList<student> studentsList; //List of students
     private genericList<book> booksList; //List of books
+    private genericList<loan> loansList; //list of loans
 
     public genericList<student> getStudents() {
         return studentsList;
@@ -35,10 +37,19 @@ public class dataBase implements Serializable{
         this.booksList = books;
     }
 
+    public genericList<loan> getLoansList() {
+        return loansList;
+    }
+
+    public void setLoansList(genericList<loan> loansList) {
+        this.loansList = loansList;
+    }
+
     public dataBase() {
         //The lists are inicialized
         studentsList = new genericList<>();
         booksList = new genericList<>();
+        loansList = new genericList<>();
     }
     
     

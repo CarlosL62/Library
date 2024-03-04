@@ -1,6 +1,11 @@
+com/mycompany/library/loans/loansForm$1.class
 com/mycompany/library/lists/genericNode.class
+com/mycompany/library/loans/loansForm$4.class
+com/mycompany/library/loans/loansForm$2.class
 com/mycompany/library/students/studentsForm$4.class
 com/mycompany/library/students/studentsForm$1.class
+com/mycompany/library/loans/loan.class
+com/mycompany/library/loans/loansForm$3.class
 com/mycompany/library/errorManagement/errorManagement.class
 com/mycompany/library/archives/archive.class
 com/mycompany/library/students/studentsForm$2.class
@@ -8,5 +13,6 @@ com/mycompany/library/lists/genericList.class
 com/mycompany/library/books/book.class
 com/mycompany/library/lists/listException.class
 com/mycompany/library/archives/dataBase.class
+com/mycompany/library/loans/loansForm.class
 com/mycompany/library/students/studentsForm$3.class
 com/mycompany/library/students/studentsForm.class
