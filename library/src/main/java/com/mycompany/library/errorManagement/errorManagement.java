@@ -26,7 +26,17 @@ public class errorManagement {
     
     //Verifies if the string only contains letters
     public boolean isText(String str) {
-        return str.matches("[a-zA-Z ]+");
+        return str.matches("[a-zA-Z .]+");
+    }
+    
+    // verifies if the string is a valid carnet
+    public boolean isValidCarnet(String str) {
+        return str.matches("[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]");
+    }
+    
+    // verifies if the string is a valid code
+    public boolean isValidBookCode(String str) {
+        return str.matches("[0-9][0-9][0-9]-[a-zA-Z][a-zA-Z][a-zA-Z]");
     }
     
     //Verifies date

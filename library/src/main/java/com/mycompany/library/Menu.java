@@ -32,6 +32,11 @@ public class Menu extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+            System.out.println(dataBase.getBooks().getValue(0).getAutor());
+        } catch (listException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private dataBase dataBase;
@@ -183,7 +188,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBooksActionPerformed
-        booksForm books = new booksForm(this);
+        booksForm books = new booksForm(this, dataBase);
         books.setVisible(true);
         books.setLocationRelativeTo(null);
         this.setVisible(false);
