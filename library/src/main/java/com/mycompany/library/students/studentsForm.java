@@ -368,7 +368,7 @@ public class studentsForm extends javax.swing.JFrame {
         // button to save the new student data
         newStudent = new student();
 
-        if (errorM.isText(txtName.getText()) && errorM.isInt(txtCarnet.getText()) && (errorM.isDate(txtyyyy.getText(), txtmm.getText(), txtdd.getText()) || (txtyyyy.getText().equals("") && txtmm.getText().equals("") && txtdd.getText().equals("")))) {
+        if (errorM.isText(txtName.getText()) && errorM.isValidCarnet(txtCarnet.getText()) && (errorM.isDate(txtyyyy.getText(), txtmm.getText(), txtdd.getText()) || (txtyyyy.getText().equals("") && txtmm.getText().equals("") && txtdd.getText().equals("")))) {
             newStudent.setName(txtName.getText());
             newStudent.setCarnet(Integer.parseInt(txtCarnet.getText()));
             newStudent.setCodeCareer(jcbCodeCareer.getSelectedIndex() + 1);
