@@ -5,6 +5,11 @@
 package com.mycompany.library.books;
 
 import com.mycompany.library.Menu;
+import com.mycompany.library.archives.dataBase;
+import com.mycompany.library.errorManagement.errorManagement;
+import com.mycompany.library.students.student;
+import java.time.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,12 +20,17 @@ public class booksForm extends javax.swing.JFrame {
     /**
      * Creates new form StudentsForm
      */
-    public booksForm(Menu menu) {
+    public booksForm(Menu menu, dataBase dataBase) {
         initComponents();
-        menu = this.menu;
+        this.menu = menu;
+        this.dataBase = dataBase;
     }
     
-    Menu menu = new Menu();
+    private Menu menu;
+    private book newBook;
+    private LocalDate localDate;
+    private errorManagement errorM = new errorManagement();
+    private dataBase dataBase;
 
     private booksForm() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -268,14 +278,15 @@ public class booksForm extends javax.swing.JFrame {
                         .addComponent(lblNewStudent3)
                         .addComponent(txtTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtdd, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNewStudent6)
-                    .addComponent(txtmm, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNewStudent7)
-                    .addComponent(txtyyyy, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNewStudent8)
-                    .addComponent(btnAdd))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAdd)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtdd, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblNewStudent6)
+                        .addComponent(txtmm, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblNewStudent7)
+                        .addComponent(txtyyyy, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblNewStudent8)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNewStudent9)
@@ -464,9 +475,52 @@ public class booksForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+        // button to save the new book data
+        newBook = new book();
+
+        if ((txtCodBook.getText() != "") && errorM.isText(txtTitle.getText()) && errorM.isInt(txtNoCopies.getText()) && errorM.isText(txtAutor.getText()) && errorM.isText(txtEditorial.getText()) && (errorM.isDate(txtyyyy.getText(), txtmm.getText(), txtdd.getText()) || (txtyyyy.getText().equals("") && txtmm.getText().equals("") && txtdd.getText().equals("")))) {
+            newBook.setTitle(txtTitle.getText());
+            newBook.setCodeBook(txtCodBook.getText());
+            newBook.setNoCopies(Integer.parseInt(txtNoCopies.getText()));
+            newBook.setAutor(txtAutor.getText());
+            newBook.setEditorial(txtEditorial.getText());
+            
+            try {
+                localDate = LocalDate.of(Integer.parseInt(txtyyyy.getText()), Integer.parseInt(txtmm.getText()), Integer.parseInt(txtdd.getText()));
+                newBook.setPublicationDay(localDate);
+            } catch (Exception e) {
+                newBook.setPublicationDay(null);
+            }
+            
+            dataBase.getBooks().addNodo(newBook);
+            
+            // confirmation message
+            JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+            cleanScreen();
+        } else {
+            // error message
+            JOptionPane.showMessageDialog(null, "Verifique que todos los campos sean correctos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnAddActionPerformed
 
+    // cleans all the textbox and resets the combobox
+    private void cleanScreen(){
+        txtCodBook.setText("");
+        txtTitle.setText("");
+        txtNoCopies.setText("");
+        txtAutor.setText("");
+        txtEditorial.setText("");
+        txtdd.setText("");
+        txtmm.setText("");
+        txtyyyy.setText("");
+        
+        txtCodBookMod.setText("");
+        txtBookCopies.setText("");
+        
+        jcbFilter.setSelectedIndex(0);
+        txtFilter.setText("");
+    }
+    
     /**
      * @param args the command line arguments
      */

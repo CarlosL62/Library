@@ -183,7 +183,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBooksActionPerformed
-        booksForm books = new booksForm(this);
+        booksForm books = new booksForm(this, dataBase);
         books.setVisible(true);
         books.setLocationRelativeTo(null);
         this.setVisible(false);

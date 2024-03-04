@@ -204,14 +204,16 @@
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtdd" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="lblNewStudent6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtmm" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="lblNewStudent7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtyyyy" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="lblNewStudent8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnAdd" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtdd" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="lblNewStudent6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtmm" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="lblNewStudent7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtyyyy" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="lblNewStudent8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
