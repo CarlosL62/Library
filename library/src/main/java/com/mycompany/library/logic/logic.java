@@ -4,7 +4,15 @@
  */
 package com.mycompany.library.logic;
 
+import com.mycompany.library.archives.dataBase;
+import com.mycompany.library.books.book;
 import com.mycompany.library.errorManagement.errorManagement;
+import com.mycompany.library.loans.loan;
+import com.mycompany.library.students.student;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -26,9 +34,26 @@ public class logic {
     private String temporalDay = null, temporalMonth = null, temporalYear = null;
     private boolean validDate = false;
 
+    private student newStudent;
+    private book newBook;
+    private loan newLoan;
+    private List<student> lsStudent;
+    private List<book> lsBook;
+    private LocalDate beginDate;
+
+    private dataBase dataBase;
+
+    public logic(dataBase dataBase) {
+        this.dataBase = dataBase;
+    }
+
     errorManagement util = new errorManagement();
 
     public void splitWords(String fileContent) {
+
+        newStudent = new student();
+        newBook = new book();
+        newLoan = new loan();
 
         String temporalString = fileContent;
 
@@ -90,6 +115,9 @@ public class logic {
                 break;
             case "CODIGO":
                 if (util.isValidBookCode(splitTwo)) {
+                    
+                    //lsBook = dataBase.getBooksList().stream().filter(x -> x.isCarnet(splitTwo)).collect(Collectors.toList());
+                    
                     this.temporalBookCode = splitTwo;
                 } else {
                     this.temporalBookCode = null;
@@ -116,6 +144,11 @@ public class logic {
                 System.out.println("El autor es: " + this.temporalAuthor);
                 System.out.println("El codigo es: " + this.temporalBookCode);
                 System.out.println("La cantidad es: " + this.temporalBookCopies);
+                newBook.setTitle(this.temporalTitle);
+                newBook.setAutor(this.temporalAuthor);
+                newBook.setCodeBook(this.temporalBookCode);
+                newBook.setNoCopies(this.temporalBookCopies);
+                dataBase.getBooksList().add(newBook);
                 this.temporalTitle = null;
                 this.temporalAuthor = null;
                 this.temporalBookCode = null;
@@ -138,7 +171,16 @@ public class logic {
         switch (splitOne) {
             case "CARNET":
                 if (util.isValidCarnet(splitTwo)) {
-                    this.temporalCarnet = Integer.parseInt(splitTwo);
+
+                    //this.temporalCarnet = Integer.parseInt(splitTwo);
+
+                    lsStudent = dataBase.getStudentsList().stream().filter(x -> x.isCarnet(splitTwo)).collect(Collectors.toList());
+
+                    if (lsStudent.size() == 0) {
+                        this.temporalCarnet = Integer.parseInt(splitTwo);
+                    } else {
+                        this.temporalCarnet = -1;
+                    }
                 } else {
                     this.temporalCarnet = -1;
                 }
@@ -171,6 +213,10 @@ public class logic {
                 System.out.println("El carnet es: " + this.temporalCarnet);
                 System.out.println("El nombre es: " + this.temporalName);
                 System.out.println("La carrera es: " + this.temporalCareer);
+                newStudent.setCarnet(temporalCarnet);
+                newStudent.setName(temporalName);
+                newStudent.setCodeCareer(temporalCareer);
+                dataBase.getStudentsList().add(newStudent);
                 this.temporalCareer = 0;
                 this.temporalName = null;
                 this.temporalCarnet = -1;
@@ -215,6 +261,8 @@ public class logic {
 
                     if (util.isDate(this.temporalYear, this.temporalMonth, this.temporalDay)) {
                         this.validDate = true;
+                        this.beginDate = LocalDate.of(Integer.parseInt(this.temporalYear),
+                                Integer.parseInt(this.temporalMonth), Integer.parseInt(this.temporalDay));
                     } else {
                         this.temporalYear = null;
                         this.temporalMonth = null;
@@ -239,6 +287,10 @@ public class logic {
                 System.out.println("El carnet es: " + this.temporalCarnet);
                 System.out.println("La fecha es: " + this.temporalYear + "/" + this.temporalMonth
                         + "/" + this.temporalDay);
+                newLoan.setBookCode(this.temporalBookCode);
+                newLoan.setStudentCarnet(this.temporalCarnet);
+                newLoan.setBeginDate(this.beginDate);
+                dataBase.getLoansList().add(newLoan);
                 this.temporalBookCode = null;
                 this.temporalCarnet = -1;
                 this.temporalYear = null;
