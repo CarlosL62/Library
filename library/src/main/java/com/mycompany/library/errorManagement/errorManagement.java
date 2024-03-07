@@ -43,6 +43,14 @@ public class errorManagement {
         return str.matches("[0-9]+");
     }
 
+    public boolean isValidCareer(String str) {
+        return str.matches("[1-5]");
+    }
+
+    public boolean isValidDate(String str) {
+        return str.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}");
+    }
+
     //Verifies date
     public boolean isDate(String yyyy, String mm, String dd) {
         //Verifies all the string are numbers

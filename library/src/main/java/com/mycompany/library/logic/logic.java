@@ -12,7 +12,6 @@ import com.mycompany.library.errorManagement.errorManagement;
  */
 public class logic {
 
-    private int totalLines, pointerSection = 0;
     private String currentSection = "VACIO";
     private boolean stateContent;
     private String temporalTitle = null;
@@ -24,26 +23,25 @@ public class logic {
     private int temporalCareer = 0;
     private int fieldsNumber = 0;
     private int registryNumber = 0;
+    private String temporalDay = null, temporalMonth = null, temporalYear = null;
+    private boolean validDate = false;
 
     errorManagement util = new errorManagement();
 
-    public void splitWords(String fileContent, int lineNumber) {
+    public void splitWords(String fileContent) {
 
         String temporalString = fileContent;
-        int currentLine = lineNumber;
-
-        this.totalLines = lineNumber;
 
         String[] contentSplited = temporalString.split(":");
 
         if (this.currentSection.equals("LIBRO")) {
-            this.stateContent = splitBooksInfo(contentSplited[0], contentSplited[1], currentLine);
+            this.stateContent = splitBooksInfo(contentSplited[0], contentSplited[1]);
         } else if (this.currentSection.equals("ESTUDIANTE")) {
             this.registryNumber = this.registryNumber + 1;
-            this.stateContent = splitStudentsInfo(contentSplited[0], contentSplited[1], currentLine);
+            this.stateContent = splitStudentsInfo(contentSplited[0], contentSplited[1]);
         } else if (this.currentSection.equals("PRESTAMO")) {
             this.registryNumber = this.registryNumber + 1;
-            this.stateContent = splitLoansInfo(contentSplited[0], contentSplited[1], currentLine);
+            this.stateContent = splitLoansInfo(contentSplited[0], contentSplited[1]);
         } else if (this.currentSection.equals("SALTO DE LINEA")) {
             this.stateContent = false;
             System.out.println("Estamos en la seccion SALTO DE LINEA");
@@ -73,7 +71,7 @@ public class logic {
 
     }
 
-    private boolean splitBooksInfo(String splitOne, String splitTwo, int currentLine) {
+    private boolean splitBooksInfo(String splitOne, String splitTwo) {
 
         boolean returnValue = true;
 
@@ -133,7 +131,7 @@ public class logic {
         return returnValue;
     }
 
-    private boolean splitStudentsInfo(String splitOne, String splitTwo, int currentLine) {
+    private boolean splitStudentsInfo(String splitOne, String splitTwo) {
 
         boolean returnValue = true;
 
@@ -142,46 +140,117 @@ public class logic {
                 if (util.isValidCarnet(splitTwo)) {
                     this.temporalCarnet = Integer.parseInt(splitTwo);
                 } else {
+                    this.temporalCarnet = -1;
                 }
+                this.fieldsNumber = this.fieldsNumber + 1;
                 break;
             case "NOMBRE":
-                System.out.print("El nombre del estudiante es: " + splitTwo);
-                System.out.println(" Linea #" + currentLine);
+                if (util.isText(splitTwo)) {
+                    this.temporalName = splitTwo;
+                } else {
+                    this.temporalName = null;
+                }
+                this.fieldsNumber = this.fieldsNumber + 1;
                 break;
             case "CARRERA":
-                System.out.print("La carrera del estudiante es: " + splitTwo);
-                System.out.println(" Linea #" + currentLine);
-                System.out.println("");
-                returnValue = false;
+                if (util.isValidCareer(splitTwo)) {
+                    this.temporalCareer = Integer.parseInt(splitTwo);
+                } else {
+                    this.temporalCareer = -1;
+                }
+                this.fieldsNumber = this.fieldsNumber + 1;
                 break;
             default:
                 throw new AssertionError();
         }
 
+        if (this.fieldsNumber == 3) {
+            if (this.temporalCareer >= 1 && this.temporalCareer <= 5 && this.temporalName != null
+                    && this.temporalCarnet > 0) {
+                System.out.println("\nSi se puede guardar el registro #" + this.registryNumber);
+                System.out.println("El carnet es: " + this.temporalCarnet);
+                System.out.println("El nombre es: " + this.temporalName);
+                System.out.println("La carrera es: " + this.temporalCareer);
+                this.temporalCareer = 0;
+                this.temporalName = null;
+                this.temporalCarnet = -1;
+            } else {
+                System.out.println("\nNo se puede guardar el registro #" + this.registryNumber);
+            }
+
+            this.fieldsNumber = 0;
+            returnValue = false;
+        }
+
         return returnValue;
     }
 
-    private boolean splitLoansInfo(String splitOne, String splitTwo, int currentLine) {
+    private boolean splitLoansInfo(String splitOne, String splitTwo) {
 
         boolean returnValue = true;
 
         switch (splitOne) {
             case "CODIGOLIBRO":
-                System.out.print("El codigo del libro es: " + splitTwo);
-                System.out.println(" Linea #" + currentLine);
+                if (util.isValidBookCode(splitTwo)) {
+                    this.temporalBookCode = splitTwo;
+                } else {
+                    this.temporalBookCode = null;
+                }
+                this.fieldsNumber = this.fieldsNumber + 1;
                 break;
             case "CARNET":
-                System.out.print("El carnet del estudiante es: " + splitTwo);
-                System.out.println(" Linea #" + currentLine);
+                if (util.isValidCarnet(splitTwo)) {
+                    this.temporalCarnet = Integer.parseInt(splitTwo);
+                } else {
+                    this.temporalCarnet = -1;
+                }
+                this.fieldsNumber = this.fieldsNumber + 1;
                 break;
             case "FECHA":
-                System.out.print("La fecha del prestamo es: " + splitTwo);
-                System.out.println(" Linea #" + currentLine);
-                System.out.println("");
-                returnValue = false;
+                if (util.isValidDate(splitTwo)) {
+                    String[] contentSplited = splitTwo.split("-");
+                    this.temporalYear = contentSplited[0];
+                    this.temporalMonth = contentSplited[1];
+                    this.temporalDay = contentSplited[2];
+
+                    if (util.isDate(this.temporalYear, this.temporalMonth, this.temporalDay)) {
+                        this.validDate = true;
+                    } else {
+                        this.temporalYear = null;
+                        this.temporalMonth = null;
+                        this.temporalDay = null;
+                        this.validDate = false;
+                    }
+
+                } else {
+                    this.validDate = false;
+                }
+                this.fieldsNumber = this.fieldsNumber + 1;
                 break;
             default:
                 throw new AssertionError();
+        }
+
+        if (this.fieldsNumber == 3) {
+            if (this.temporalBookCode != null && this.temporalCarnet > 0
+                    && this.validDate == true) {
+                System.out.println("\nSi se puede guardar el registro #" + this.registryNumber);
+                System.out.println("El codigo del libro es: " + this.temporalBookCode);
+                System.out.println("El carnet es: " + this.temporalCarnet);
+                System.out.println("La fecha es: " + this.temporalYear + "/" + this.temporalMonth
+                        + "/" + this.temporalDay);
+                this.temporalBookCode = null;
+                this.temporalCarnet = -1;
+                this.temporalYear = null;
+                this.temporalMonth = null;
+                this.temporalDay = null;
+                this.validDate = false;
+            } else {
+                System.out.println("\nNo se puede guardar el registro #" + this.registryNumber);
+            }
+
+            this.fieldsNumber = 0;
+            returnValue = false;
         }
 
         return returnValue;
