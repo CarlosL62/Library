@@ -28,12 +28,12 @@ public class Menu extends javax.swing.JFrame {
 
     FileReader archiveToRead;
     BufferedReader reader;
-    logic util = new logic();
+    logic util;
 
     /**
      * Creates new form Menu
      */
-    public Menu() {
+    public Menu() {        
         initComponents();
         archive = new archive();
         try {
@@ -41,6 +41,7 @@ public class Menu extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.util = new logic(dataBase);
     }
 
     private dataBase dataBase;
