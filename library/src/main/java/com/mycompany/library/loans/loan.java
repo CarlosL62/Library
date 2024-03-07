@@ -59,4 +59,11 @@ public class loan implements Serializable {
         this.endDate = endDate;
     }
     
+    public boolean isStudentCarnet(int carnet) {
+        if (this.studentCarnet == carnet) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
