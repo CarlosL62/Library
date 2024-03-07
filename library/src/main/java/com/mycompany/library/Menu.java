@@ -8,17 +8,27 @@ import com.mycompany.library.archives.archive;
 import com.mycompany.library.archives.dataBase;
 import com.mycompany.library.books.booksForm;
 import com.mycompany.library.loans.loansForm;
+import com.mycompany.library.logic.logic;
 import com.mycompany.library.reports.reports;
 import com.mycompany.library.students.studentsForm;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author carlos
  */
 public class Menu extends javax.swing.JFrame {
+
+    FileReader archiveToRead;
+    BufferedReader reader;
+    logic util = new logic();
 
     /**
      * Creates new form Menu
@@ -35,7 +45,7 @@ public class Menu extends javax.swing.JFrame {
 
     private dataBase dataBase;
     private archive archive;
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -211,6 +221,56 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnImportDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportDataActionPerformed
         // TODO add your handling code here:
+        JFileChooser jf = new JFileChooser();
+        jf.showOpenDialog(this);
+        File routeFile = jf.getSelectedFile();
+
+        int lineCounter = 1;
+
+        if (routeFile != null) {
+
+            String routeString = routeFile.getName();
+            String completeFileContent;
+
+            if (routeString.matches("[A-Za-z0-9. ]+[txt]")) {
+
+                try {
+                    archiveToRead = new FileReader(routeFile);
+                    reader = new BufferedReader(archiveToRead);
+
+                    String fileContent;
+                    completeFileContent = null;
+
+                    if ((fileContent = reader.readLine()) != null) {
+
+                        util.splitWords(fileContent, lineCounter);
+                        completeFileContent = fileContent + "\n";
+
+                        while ((fileContent = reader.readLine()) != null) {
+
+                            util.splitWords(fileContent, lineCounter);
+                            completeFileContent += fileContent + "\n";
+                            lineCounter = lineCounter + 1;
+                        }
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "ERROR. El archivo está vacío");
+                    }
+
+                } catch (Exception e) {
+                    System.out.println("Error: " + e.getMessage());
+                }
+
+                util.setRegistryNumber(0);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR. No seleccionó un archivo de texto");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No seleccionó un archivo");
+        }
+
     }//GEN-LAST:event_btnImportDataActionPerformed
 
     private void btnLoansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoansActionPerformed
