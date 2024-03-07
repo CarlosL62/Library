@@ -7,8 +7,7 @@ package com.mycompany.library;
 import com.mycompany.library.archives.archive;
 import com.mycompany.library.archives.dataBase;
 import com.mycompany.library.books.booksForm;
-import com.mycompany.library.lists.listException;
-import com.mycompany.library.loans.loans;
+import com.mycompany.library.loans.loansForm;
 import com.mycompany.library.reports.reports;
 import com.mycompany.library.students.studentsForm;
 import java.io.IOException;
@@ -30,11 +29,6 @@ public class Menu extends javax.swing.JFrame {
         try {
             dataBase = archive.startdb(); //Loading database
         } catch (IOException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            System.out.println(dataBase.getBooks().getValue(0).getAutor());
-        } catch (listException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -208,10 +202,10 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
         // TODO add your handling code here:
-        reports reportsForm = new reports();
+        reports reportsForm = new reports(this, dataBase);
         reportsForm.setVisible(true);
         reportsForm.setLocationRelativeTo(null);
-        this.dispose();
+        this.setVisible(false);
 
     }//GEN-LAST:event_btnReportsActionPerformed
 
@@ -221,10 +215,10 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnLoansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoansActionPerformed
         // TODO add your handling code here:
-        loans loansForm = new loans();
+        loansForm loansForm = new loansForm(this, dataBase);
         loansForm.setVisible(true);
         loansForm.setLocationRelativeTo(null);
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_btnLoansActionPerformed
 
     /**

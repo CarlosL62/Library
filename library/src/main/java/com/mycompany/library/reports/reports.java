@@ -5,6 +5,7 @@
 package com.mycompany.library.reports;
 
 import com.mycompany.library.Menu;
+import com.mycompany.library.archives.dataBase;
 
 /**
  *
@@ -15,12 +16,21 @@ public class reports extends javax.swing.JFrame {
     /**
      * Creates new form reports
      */
-    public reports() {
+    public reports(Menu menu, dataBase dataBase) {
         initComponents();
+        this.menu = menu;
+        this.dataBase = dataBase;
         this.setLocationRelativeTo(null);
         this.setTitle("Reportes");
     }
 
+    private Menu menu;
+    private dataBase dataBase;
+
+    private reports() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,52 +52,91 @@ public class reports extends javax.swing.JFrame {
         returnButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setFocusable(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 800));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Liberation Serif", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Reportes");
 
         jPanel2.setBackground(new java.awt.Color(0, 51, 102));
 
-        dayDeliveriesButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        dayDeliveriesButton.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        dayDeliveriesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/calendar.png"))); // NOI18N
         dayDeliveriesButton.setText("Entregas del día");
+        dayDeliveriesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dayDeliveriesButtonActionPerformed(evt);
+            }
+        });
 
-        lateBooksButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lateBooksButton.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        lateBooksButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/moneywithtimer.png"))); // NOI18N
         lateBooksButton.setText("Libros con mora");
+        lateBooksButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lateBooksButtonActionPerformed(evt);
+            }
+        });
 
-        raisedMoneyButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        raisedMoneyButton.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        raisedMoneyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/money.png"))); // NOI18N
         raisedMoneyButton.setText("Dinero recaudado");
+        raisedMoneyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                raisedMoneyButtonActionPerformed(evt);
+            }
+        });
 
-        studentsLoansButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        studentsLoansButton.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        studentsLoansButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/studentwithbook.png"))); // NOI18N
         studentsLoansButton.setText("Préstamos por estudiante");
+        studentsLoansButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentsLoansButtonActionPerformed(evt);
+            }
+        });
 
-        currentStudentsLoansButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        currentStudentsLoansButton.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        currentStudentsLoansButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/studentwithbook.png"))); // NOI18N
         currentStudentsLoansButton.setText("Préstamos actuales por estudiante");
+        currentStudentsLoansButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                currentStudentsLoansButtonActionPerformed(evt);
+            }
+        });
 
-        careerLoansButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        careerLoansButton.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        careerLoansButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/community.png"))); // NOI18N
         careerLoansButton.setText("Préstamos por carrera");
+        careerLoansButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                careerLoansButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(careerLoansButton)
-                    .addComponent(currentStudentsLoansButton)
-                    .addComponent(studentsLoansButton)
-                    .addComponent(raisedMoneyButton)
-                    .addComponent(lateBooksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dayDeliveriesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(171, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(176, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(dayDeliveriesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lateBooksButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(raisedMoneyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(studentsLoansButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(currentStudentsLoansButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(careerLoansButton, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(168, 168, 168))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addComponent(dayDeliveriesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(lateBooksButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -99,7 +148,7 @@ public class reports extends javax.swing.JFrame {
                 .addComponent(currentStudentsLoansButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(careerLoansButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(31, 31, 31))
         );
 
         returnButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -115,19 +164,16 @@ public class reports extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(325, 325, 325)
+                .addComponent(jLabel1)
+                .addContainerGap(340, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(325, 325, 325)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                    .addComponent(returnButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +182,7 @@ public class reports extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(60, 60, 60)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -145,23 +191,63 @@ public class reports extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void returnButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnButtonMouseClicked
-        // TODO add your handling code here:
-        Menu mainWindow = new Menu();
-        mainWindow.setVisible(true);
-        mainWindow.setLocationRelativeTo(null);
-        dispose();
+        menu.setVisible(true);
+        menu.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_returnButtonMouseClicked
+
+    private void careerLoansButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_careerLoansButtonActionPerformed
+        careerLoans careerLoans = new careerLoans(this, dataBase);
+        careerLoans.setVisible(true);
+        careerLoans.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_careerLoansButtonActionPerformed
+
+    private void dayDeliveriesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dayDeliveriesButtonActionPerformed
+        dayDeliveries dayDeliveries = new dayDeliveries(this, dataBase);
+        dayDeliveries.setVisible(true);
+        dayDeliveries.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_dayDeliveriesButtonActionPerformed
+
+    private void lateBooksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lateBooksButtonActionPerformed
+        lateBooks lateBooks = new lateBooks(this, dataBase);
+        lateBooks.setVisible(true);
+        lateBooks.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_lateBooksButtonActionPerformed
+
+    private void raisedMoneyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raisedMoneyButtonActionPerformed
+        raisedMoney raisedMoney = new raisedMoney(this, dataBase);
+        raisedMoney.setLocationRelativeTo(null);
+        raisedMoney.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_raisedMoneyButtonActionPerformed
+
+    private void studentsLoansButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentsLoansButtonActionPerformed
+        studentsLoans studentsLoans = new studentsLoans(this, dataBase);
+        studentsLoans.setLocationRelativeTo(null);
+        studentsLoans.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_studentsLoansButtonActionPerformed
+
+    private void currentStudentsLoansButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentStudentsLoansButtonActionPerformed
+        currentStudentsLoans currentStudentsLoans = new currentStudentsLoans(this, dataBase);
+        currentStudentsLoans.setLocationRelativeTo(null);
+        currentStudentsLoans.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_currentStudentsLoansButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,6 +274,9 @@ public class reports extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(reports.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

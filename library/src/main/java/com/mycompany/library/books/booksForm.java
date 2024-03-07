@@ -265,12 +265,12 @@ public class booksForm extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblNewStudent1)
                         .addGap(16, 16, 16)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNewStudent2)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lblNewStudent14)
                                 .addComponent(txtEditorial, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblNewStudent2)))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblNewStudent13)
                         .addComponent(txtNoCopies, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -318,24 +318,30 @@ public class booksForm extends javax.swing.JFrame {
 
         tblBooks.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Código", "Título", "No. Copias", "Autor", "Editorial", "Fecha de publicación"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tblBooks.getTableHeader().setReorderingAllowed(false);
         tblStudents.setViewportView(tblBooks);
+        if (tblBooks.getColumnModel().getColumnCount() > 0) {
+            tblBooks.getColumnModel().getColumn(0).setResizable(false);
+            tblBooks.getColumnModel().getColumn(1).setResizable(false);
+            tblBooks.getColumnModel().getColumn(2).setResizable(false);
+            tblBooks.getColumnModel().getColumn(3).setResizable(false);
+            tblBooks.getColumnModel().getColumn(4).setResizable(false);
+            tblBooks.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         btnSearch.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/search.png"))); // NOI18N
@@ -439,13 +445,14 @@ public class booksForm extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(lblNewStudent15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNewStudent16)
-                    .addComponent(txtCodBookMod, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch1)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblNewStudent17)
-                        .addComponent(txtBookCopies, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtBookCopies, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblNewStudent16)
+                        .addComponent(txtCodBookMod, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearch1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -493,7 +500,9 @@ public class booksForm extends javax.swing.JFrame {
                 newBook.setPublicationDay(null);
             }
             
-            dataBase.getBooks().addNodo(newBook);
+            //dataBase.getBooks().addNodo(newBook);
+            dataBase.getBooksList().add(newBook);
+            
             
             // confirmation message
             JOptionPane.showMessageDialog(null, "Datos guardados correctamente");

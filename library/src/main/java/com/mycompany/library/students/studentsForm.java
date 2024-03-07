@@ -274,10 +274,7 @@ public class studentsForm extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Carnet", "Nombre", "Cod Carrera", "Fecha de nacimiento"
@@ -291,7 +288,14 @@ public class studentsForm extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable2.getTableHeader().setReorderingAllowed(false);
         tblStudents.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(0).setResizable(false);
+            jTable2.getColumnModel().getColumn(1).setResizable(false);
+            jTable2.getColumnModel().getColumn(2).setResizable(false);
+            jTable2.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         btnSearch.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/search.png"))); // NOI18N
@@ -379,7 +383,8 @@ public class studentsForm extends javax.swing.JFrame {
                 newStudent.setBirthday(null);
             }
             
-            dataBase.getStudents().addNodo(newStudent);
+            //dataBase.getStudents().addNodo(newStudent);
+            dataBase.getStudentsList().add(newStudent);
             
             // confirmation message
             JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
