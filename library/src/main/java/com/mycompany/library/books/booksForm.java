@@ -9,7 +9,10 @@ import com.mycompany.library.archives.dataBase;
 import com.mycompany.library.errorManagement.errorManagement;
 import com.mycompany.library.students.student;
 import java.time.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -24,6 +27,7 @@ public class booksForm extends javax.swing.JFrame {
         initComponents();
         this.menu = menu;
         this.dataBase = dataBase;
+        fillTable(dataBase.getBooksList());
     }
     
     private Menu menu;
@@ -75,7 +79,7 @@ public class booksForm extends javax.swing.JFrame {
         lblNewStudent5 = new javax.swing.JLabel();
         jcbFilter = new javax.swing.JComboBox<>();
         txtFilter = new javax.swing.JTextField();
-        tblStudents = new javax.swing.JScrollPane();
+        JScrollPane = new javax.swing.JScrollPane();
         tblBooks = new javax.swing.JTable();
         btnSearch = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -333,7 +337,7 @@ public class booksForm extends javax.swing.JFrame {
             }
         });
         tblBooks.getTableHeader().setReorderingAllowed(false);
-        tblStudents.setViewportView(tblBooks);
+        JScrollPane.setViewportView(tblBooks);
         if (tblBooks.getColumnModel().getColumnCount() > 0) {
             tblBooks.getColumnModel().getColumn(0).setResizable(false);
             tblBooks.getColumnModel().getColumn(1).setResizable(false);
@@ -354,7 +358,7 @@ public class booksForm extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tblStudents)
+                    .addComponent(JScrollPane)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNewStudent)
@@ -384,7 +388,7 @@ public class booksForm extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(btnSearch)))
                 .addGap(18, 18, 18)
-                .addComponent(tblStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                .addComponent(JScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -506,6 +510,7 @@ public class booksForm extends javax.swing.JFrame {
             
             // confirmation message
             JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+            fillTable(dataBase.getBooksList());
             cleanScreen();
         } else {
             // error message
@@ -529,6 +534,24 @@ public class booksForm extends javax.swing.JFrame {
         
         jcbFilter.setSelectedIndex(0);
         txtFilter.setText("");
+    }
+    
+    // fills all data to the tableModel
+    private void fillTable(ArrayList<book> booksList){
+        DefaultTableModel defaultModel = new DefaultTableModel(new String[]{"Código", "Título", "No Copias", "Autor", "Editorial", "Fecha de publicación"}, booksList.size());
+        tblBooks.setModel(defaultModel);
+        
+        TableModel dataModel = tblBooks.getModel();
+        for (int i = 0; i < booksList.size(); i++) {
+            book book = booksList.get(i);
+            dataModel.setValueAt(book.codeBook, i, 0);
+            dataModel.setValueAt(book.title, i, 1);
+            dataModel.setValueAt(book.noCopies, i, 2);
+            dataModel.setValueAt(book.autor, i, 3);
+            dataModel.setValueAt(book.editorial, i, 4);
+            dataModel.setValueAt(book.publicationDay, i, 5);
+            
+        }
     }
     
     /**
@@ -570,6 +593,7 @@ public class booksForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane JScrollPane;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnSearch;
@@ -598,7 +622,6 @@ public class booksForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblNewStudent9;
     private javax.swing.JLabel lblStudents;
     private javax.swing.JTable tblBooks;
-    private javax.swing.JScrollPane tblStudents;
     private javax.swing.JTextField txtAutor;
     private javax.swing.JTextField txtBookCopies;
     private javax.swing.JTextField txtCodBook;

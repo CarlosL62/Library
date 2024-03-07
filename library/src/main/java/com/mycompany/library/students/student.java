@@ -50,4 +50,28 @@ public class student implements Serializable{
         this.birthday = birthday;
     }
     
+    public boolean isCarnet(String carnet){
+        if (Integer.parseInt(carnet) == this.carnet) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean isName(String name){
+        if (this.name.contains(name)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean isCodeCareer(String codeCareer){
+        if (Integer.parseInt(codeCareer) == this.codeCareer) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
 }

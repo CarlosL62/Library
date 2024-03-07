@@ -8,7 +8,12 @@ import com.mycompany.library.Menu;
 import com.mycompany.library.archives.dataBase;
 import com.mycompany.library.errorManagement.errorManagement;
 import java.time.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -25,6 +30,7 @@ public class studentsForm extends javax.swing.JFrame {
         initComponents();
         this.menu = menu;
         this.dataBase = dataBase; //Loading dataBase
+        fillTable(dataBase.getStudentsList());
     }
     
     private Menu menu;
@@ -72,8 +78,8 @@ public class studentsForm extends javax.swing.JFrame {
         lblNewStudent5 = new javax.swing.JLabel();
         jcbFilter = new javax.swing.JComboBox<>();
         txtFilter = new javax.swing.JTextField();
-        tblStudents = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        JScrollPane = new javax.swing.JScrollPane();
+        tblStudents = new javax.swing.JTable();
         btnSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -268,11 +274,11 @@ public class studentsForm extends javax.swing.JFrame {
         lblNewStudent5.setToolTipText("");
 
         jcbFilter.setFont(new java.awt.Font("Liberation Serif", 0, 14)); // NOI18N
-        jcbFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nombre", "Carnet", "Cod Carrera" }));
+        jcbFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carnet", "Nombre", "Cod Carrera" }));
 
         txtFilter.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblStudents.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -280,26 +286,38 @@ public class studentsForm extends javax.swing.JFrame {
                 "Carnet", "Nombre", "Cod Carrera", "Fecha de nacimiento"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        tblStudents.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setResizable(false);
-            jTable2.getColumnModel().getColumn(1).setResizable(false);
-            jTable2.getColumnModel().getColumn(2).setResizable(false);
-            jTable2.getColumnModel().getColumn(3).setResizable(false);
+        tblStudents.getTableHeader().setReorderingAllowed(false);
+        JScrollPane.setViewportView(tblStudents);
+        if (tblStudents.getColumnModel().getColumnCount() > 0) {
+            tblStudents.getColumnModel().getColumn(0).setResizable(false);
+            tblStudents.getColumnModel().getColumn(1).setResizable(false);
+            tblStudents.getColumnModel().getColumn(2).setResizable(false);
+            tblStudents.getColumnModel().getColumn(3).setResizable(false);
         }
 
         btnSearch.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/search.png"))); // NOI18N
         btnSearch.setText("Buscar");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -308,7 +326,7 @@ public class studentsForm extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tblStudents)
+                    .addComponent(JScrollPane)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNewStudent)
@@ -338,7 +356,7 @@ public class studentsForm extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(btnSearch)))
                 .addGap(18, 18, 18)
-                .addComponent(tblStudents, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
+                .addComponent(JScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -388,6 +406,7 @@ public class studentsForm extends javax.swing.JFrame {
             
             // confirmation message
             JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
+            fillTable(dataBase.getStudentsList());
             cleanScreen();
         } else {
             // error message
@@ -395,6 +414,57 @@ public class studentsForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
+    // filters the data from students
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        int option = jcbFilter.getSelectedIndex(); // 0 Carnet, 1 Name, 2 CodCareer
+        String textToFilter = txtFilter.getText();
+        if (checkFilter(option, textToFilter)) {
+            fillTable(filterList(option, textToFilter));
+        } else {
+            // error message
+            JOptionPane.showMessageDialog(null, "Verifique que el campo sea correcto", "Error", JOptionPane.ERROR_MESSAGE);
+            fillTable(dataBase.getStudentsList());
+        }            
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    // method to check that the text to filter is correct
+    private boolean checkFilter(int option, String textToFilter){
+        switch (option) {
+            case 0:
+                return errorM.isValidCarnet(textToFilter);
+            case 1:
+                return errorM.isText(textToFilter);
+            case 2:
+                if (errorM.isInt(textToFilter)) {
+                    // checks if the number is correct
+                    if (Integer.parseInt(textToFilter) == 1 || Integer.parseInt(textToFilter) == 2 || Integer.parseInt(textToFilter) == 3 || Integer.parseInt(textToFilter) == 4 || Integer.parseInt(textToFilter) == 5) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            default:
+                throw new AssertionError();
+        }
+        
+    }
+    
+    // method to filter the table
+    private List<student> filterList(int option, String txtToFilter){
+        switch (option) {
+            case 0:
+                return dataBase.getStudentsList().stream().filter(x -> x.isCarnet(txtToFilter)).collect(Collectors.toList());
+                
+            case 1:
+                return dataBase.getStudentsList().stream().filter(x -> x.isName(txtToFilter)).collect(Collectors.toList());
+                
+            case 2:
+                return dataBase.getStudentsList().stream().filter(x -> x.isCodeCareer(txtToFilter)).collect(Collectors.toList());
+            default:
+                throw new AssertionError();
+        }
+    }
+    
     // cleans all the textbox and resets the combobox
     private void cleanScreen(){
         txtName.setText("");
@@ -405,6 +475,42 @@ public class studentsForm extends javax.swing.JFrame {
         txtyyyy.setText("");
         jcbFilter.setSelectedIndex(0);
         txtFilter.setText("");
+    }
+    
+    // fills all data to the tableModel
+    private void fillTable(ArrayList<student> studentsList){
+        DefaultTableModel defaultModel = new DefaultTableModel(new String[]{"Carnet", "Nombre", "Código Carrera", "Fecha de nacimiento"}, studentsList.size());
+        tblStudents.setModel(defaultModel);
+        
+        TableModel dataModel = tblStudents.getModel();
+        for (int i = 0; i < studentsList.size(); i++) {
+            student student = studentsList.get(i);
+            dataModel.setValueAt(student.getCarnet(), i, 0);
+            dataModel.setValueAt(student.getName(), i, 1);
+            dataModel.setValueAt(student.getCodeCareer(), i, 2);
+            if (student.getBirthday() != null) {
+                dataModel.setValueAt(student.getBirthday().toString(), i, 3);
+            }
+            
+        }
+    }
+    
+    // fills all data to the tableModel
+    private void fillTable(List<student> studentsList){
+        DefaultTableModel defaultModel = new DefaultTableModel(new String[]{"Carnet", "Nombre", "Código Carrera", "Fecha de nacimiento"}, studentsList.size());
+        tblStudents.setModel(defaultModel);
+        
+        TableModel dataModel = tblStudents.getModel();
+        for (int i = 0; i < studentsList.size(); i++) {
+            student student = studentsList.get(i);
+            dataModel.setValueAt(student.getCarnet(), i, 0);
+            dataModel.setValueAt(student.getName(), i, 1);
+            dataModel.setValueAt(student.getCodeCareer(), i, 2);
+            if (student.getBirthday() != null) {
+                dataModel.setValueAt(student.getBirthday().toString(), i, 3);
+            }
+            
+        }
     }
     
     /**
@@ -444,13 +550,13 @@ public class studentsForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane JScrollPane;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnSearch;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTable jTable2;
     private javax.swing.JComboBox<String> jcbCodeCareer;
     private javax.swing.JComboBox<String> jcbFilter;
     private javax.swing.JLabel lblNewStudent;
@@ -466,7 +572,7 @@ public class studentsForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblNewStudent8;
     private javax.swing.JLabel lblNewStudent9;
     private javax.swing.JLabel lblStudents;
-    private javax.swing.JScrollPane tblStudents;
+    private javax.swing.JTable tblStudents;
     private javax.swing.JTextField txtCarnet;
     private javax.swing.JTextField txtFilter;
     private javax.swing.JTextField txtName;
