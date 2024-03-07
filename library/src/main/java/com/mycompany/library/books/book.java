@@ -68,6 +68,34 @@ public class book implements Serializable{
         this.publicationDay = publicationDay;
     }
     
+    public boolean isBookCode(String bookCode) {
+        if (this.codeBook.equals(bookCode)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
+    public boolean isTitle(String title) {
+        if (this.title.contains(title)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public boolean isAutor(String autor) {
+        if (this.autor.contains(autor)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public void newNoCopies (String bookCode, int newNoCopies) {
+        if (this.codeBook.equals(bookCode)) {
+            setNoCopies(newNoCopies);
+        }
+    }
     
 }

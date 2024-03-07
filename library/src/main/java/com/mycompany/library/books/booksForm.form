@@ -570,7 +570,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
                     <StringItem index="0" value="Cod Libro"/>
-                    <StringItem index="1" value="Nombre"/>
+                    <StringItem index="1" value="T&#xed;tulo"/>
                     <StringItem index="2" value="Autor"/>
                   </StringArray>
                 </Property>
@@ -653,6 +653,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -685,9 +688,9 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="lblNewStudent17" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtBookCopies" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Component id="txtNewNoCopies" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace pref="59" max="32767" attributes="0"/>
-                              <Component id="btnSearch1" min="-2" pref="210" max="-2" attributes="0"/>
+                              <Component id="btnModify" min="-2" pref="210" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -700,15 +703,13 @@
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="lblNewStudent15" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblNewStudent16" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCodBookMod" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="btnModify" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
                               <Component id="lblNewStudent17" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtBookCopies" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblNewStudent16" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCodBookMod" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="btnSearch1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNewNoCopies" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -753,7 +754,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnSearch1">
+            <Component class="javax.swing.JButton" name="btnModify">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Liberation Serif" size="24" style="0"/>
@@ -763,8 +764,11 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Modificar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModifyActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtBookCopies">
+            <Component class="javax.swing.JTextField" name="txtNewNoCopies">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Liberation Serif" size="18" style="2"/>

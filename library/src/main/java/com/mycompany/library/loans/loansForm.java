@@ -8,8 +8,16 @@ import com.mycompany.library.Menu;
 import com.mycompany.library.archives.dataBase;
 import com.mycompany.library.books.book;
 import com.mycompany.library.errorManagement.errorManagement;
+import com.mycompany.library.students.student;
 import java.time.*;
+import java.util.ArrayList;
+import static java.util.Arrays.stream;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -24,6 +32,7 @@ public class loansForm extends javax.swing.JFrame {
         initComponents();
         this.menu = menu;
         this.dataBase = dataBase;
+        fillTable(dataBase.getLoansList());
     }
     
     private Menu menu;
@@ -236,20 +245,39 @@ public class loansForm extends javax.swing.JFrame {
         newLoan = new loan();
 
         if (errorM.isValidCarnet(txtCarnet.getText()) && errorM.isValidBookCode(txtBookCod.getText())) {
+            // adding values
             newLoan.setStudentCarnet(Integer.parseInt(txtCarnet.getText()));
+            newLoan.setBookCode(txtBookCod.getText());
             localDate = localDate.now();
             newLoan.setBeginDate(localDate);
-            
-            //dataBase.getLoansList().addNodo(newLoan);
-            dataBase.getLoansList().add(newLoan);
-            
-            // confirmation message
-            JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
-            cleanScreen();
+
+            // comprobations
+            List ls = dataBase.getStudentsList().stream().filter(x -> x.isCarnet(String.valueOf(newLoan.getStudentCarnet()))).collect(Collectors.toList());
+            // if there is one, then it is a correct carnet
+            if (ls.size() == 1) {
+                // then, we need to check the book
+                List lb = dataBase.getBooksList().stream().filter(x -> x.isBookCode(newLoan.getBookCode())).collect(Collectors.toList());
+                if (lb.size() == 1) {
+                    dataBase.getLoansList().add(newLoan);
+                    //confirmation message
+                    cleanScreen();
+                    JOptionPane.showMessageDialog(null, "Préstamo agregado correctamente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    // error message
+                    JOptionPane.showMessageDialog(null, "El libro no existe en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+                    fillTable(dataBase.getLoansList());
+                }
+                        
+            } else {
+                // error message
+                JOptionPane.showMessageDialog(null, "El carnet no existe en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         } else {
             // error message
             JOptionPane.showMessageDialog(null, "Verifique que todos los campos sean correctos", "Error", JOptionPane.ERROR_MESSAGE);
         }
+        fillTable(dataBase.getLoansList());
+        
     }//GEN-LAST:event_btnAddLoanActionPerformed
 
     private void btnEndLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEndLoanActionPerformed
@@ -260,6 +288,23 @@ public class loansForm extends javax.swing.JFrame {
     private void cleanScreen(){
         txtCarnet.setText("");
         txtBookCod.setText("");
+    }
+    
+    // fills all data to the tableModel
+    private void fillTable(ArrayList<loan> loansList){
+        DefaultTableModel defaultModel = new DefaultTableModel(new String[]{"Carnet", "Código de libro", "Fecha de inicio"}, loansList.size());
+        reportsTable.setModel(defaultModel);
+        
+        TableModel dataModel = reportsTable.getModel();
+        
+        List<loan> studentsSorted = loansList.stream().sorted(Comparator.comparing(loan::getStudentCarnet)).collect(Collectors.toList());
+        
+        for (int i = 0; i < studentsSorted.size(); i++) {
+            loan loan = studentsSorted.get(i);
+            dataModel.setValueAt(loan.getStudentCarnet(), i, 0);
+            dataModel.setValueAt(loan.getBookCode(), i, 1);
+            dataModel.setValueAt(loan.getBeginDate().toString(), i, 2);
+        }
     }
     
     /**

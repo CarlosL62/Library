@@ -9,6 +9,8 @@ import com.mycompany.library.archives.dataBase;
 import com.mycompany.library.errorManagement.errorManagement;
 import java.time.*;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
@@ -442,6 +444,8 @@ public class studentsForm extends javax.swing.JFrame {
                     } else {
                         return false;
                     }
+                } else {
+                    return false;
                 }
             default:
                 throw new AssertionError();
@@ -483,8 +487,11 @@ public class studentsForm extends javax.swing.JFrame {
         tblStudents.setModel(defaultModel);
         
         TableModel dataModel = tblStudents.getModel();
-        for (int i = 0; i < studentsList.size(); i++) {
-            student student = studentsList.get(i);
+        
+        List<student> studentsSorted = studentsList.stream().sorted(Comparator.comparing(student::getCarnet)).collect(Collectors.toList());
+        
+        for (int i = 0; i < studentsSorted.size(); i++) {
+            student student = studentsSorted.get(i);
             dataModel.setValueAt(student.getCarnet(), i, 0);
             dataModel.setValueAt(student.getName(), i, 1);
             dataModel.setValueAt(student.getCodeCareer(), i, 2);
@@ -501,8 +508,11 @@ public class studentsForm extends javax.swing.JFrame {
         tblStudents.setModel(defaultModel);
         
         TableModel dataModel = tblStudents.getModel();
-        for (int i = 0; i < studentsList.size(); i++) {
-            student student = studentsList.get(i);
+        
+        List<student> studentsSorted = studentsList.stream().sorted(Comparator.comparing(student::getCarnet)).collect(Collectors.toList());
+        
+        for (int i = 0; i < studentsSorted.size(); i++) {
+            student student = studentsSorted.get(i);
             dataModel.setValueAt(student.getCarnet(), i, 0);
             dataModel.setValueAt(student.getName(), i, 1);
             dataModel.setValueAt(student.getCodeCareer(), i, 2);
