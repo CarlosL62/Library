@@ -103,6 +103,11 @@ public class loansForm extends javax.swing.JFrame {
         btnEndLoan.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
         btnEndLoan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/pay.png"))); // NOI18N
         btnEndLoan.setText("Finalizar");
+        btnEndLoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEndLoanActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -246,6 +251,10 @@ public class loansForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Verifique que todos los campos sean correctos", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAddLoanActionPerformed
+
+    private void btnEndLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEndLoanActionPerformed
+        int ans = JOptionPane.showConfirmDialog(null, "El costo total del préstamo es 1000\n"+"¿Desea cofirmar el pago?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnEndLoanActionPerformed
 
     // cleans all the textbox
     private void cleanScreen(){
