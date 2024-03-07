@@ -5,6 +5,15 @@
 package com.mycompany.library.reports;
 
 import com.mycompany.library.archives.dataBase;
+import com.mycompany.library.loans.loan;
+import com.mycompany.library.students.student;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -191,32 +200,33 @@ public class studentsLoans extends javax.swing.JFrame {
     }//GEN-LAST:event_returnButtonMouseClicked
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // button to save the new student data
-        /*newStudent = new student();
 
-        if (errorM.isText(txtName.getText()) && errorM.isValidCarnet(txtCarnet.getText()) && (errorM.isDate(txtyyyy.getText(), txtmm.getText(), txtdd.getText()) || (txtyyyy.getText().equals("") && txtmm.getText().equals("") && txtdd.getText().equals("")))) {
-            newStudent.setName(txtName.getText());
-            newStudent.setCarnet(Integer.parseInt(txtCarnet.getText()));
-            newStudent.setCodeCareer(jcbCodeCareer.getSelectedIndex() + 1);
-            try {
-                localDate = LocalDate.of(Integer.parseInt(txtyyyy.getText()), Integer.parseInt(txtmm.getText()), Integer.parseInt(txtdd.getText()));
-                newStudent.setBirthday(localDate);
-            } catch (Exception e) {
-                newStudent.setBirthday(null);
-            }
+        List ls = dataBase.getLoansList().stream().filter(x -> x.isStudentCarnet(Integer.parseInt(txtCarnet.getText()))).collect(Collectors.toList());
+        fillTable(ls);
 
-            //dataBase.getStudents().addNodo(newStudent);
-            dataBase.getStudentsList().add(newStudent);
-
-            // confirmation message
-            JOptionPane.showMessageDialog(null, "Datos guardados correctamente");
-            cleanScreen();
-        } else {
-            // error message
-            JOptionPane.showMessageDialog(null, "Verifique que todos los campos sean correctos", "Error", JOptionPane.ERROR_MESSAGE);
-        }*/
     }//GEN-LAST:event_btnSearchActionPerformed
 
+    // fills all data to the tableModel
+    private void fillTable(List<loan> loanList){
+        DefaultTableModel defaultModel = new DefaultTableModel(new String[]{"Carnet", "Código de libro", "Fecha de inicio", "Fecha de fin"}, loanList.size());
+        reportsTable.setModel(defaultModel);
+        
+        TableModel dataModel = reportsTable.getModel();
+        
+        List<loan> loanSorted = loanList.stream().sorted(Comparator.comparing(loan::getStudentCarnet)).collect(Collectors.toList());
+        
+        for (int i = 0; i < loanSorted.size(); i++) {
+            loan loan = loanSorted.get(i);
+            dataModel.setValueAt(loan.getStudentCarnet(), i, 0);
+            dataModel.setValueAt(loan.getBookCode(), i, 1);
+            dataModel.setValueAt(loan.getBeginDate().toString(), i, 2);
+            if (loan.getEndDate() != null) {
+                dataModel.setValueAt(loan.getEndDate().toString(), i, 3);
+            }
+            
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

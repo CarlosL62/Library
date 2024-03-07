@@ -34,7 +34,7 @@ public class loansForm extends javax.swing.JFrame {
         this.dataBase = dataBase;
         fillTable(dataBase.getLoansList());
     }
-    
+
     private Menu menu;
     private loan newLoan;
     private dataBase dataBase;
@@ -260,7 +260,7 @@ public class loansForm extends javax.swing.JFrame {
                     List lc = dataBase.getLoansList().stream().filter(x -> (x.isStudentCarnet(newLoan.getStudentCarnet()))).collect(Collectors.toList());
                     // we check if the student has loans left
                     if (lc.size() < 3) {
-                        
+
                         dataBase.getBooksList().stream().forEach(x -> {
                             if (x.getCodeBook().equals(newLoan.getBookCode())) {
                                 if (x.getNoCopies() > 0) {
@@ -274,23 +274,21 @@ public class loansForm extends javax.swing.JFrame {
                                     JOptionPane.showMessageDialog(null, "No hay suficiente copias", "Error", JOptionPane.ERROR_MESSAGE);
                                 }
 
-                                
                             }
                         });
-                    
+
                     } else {
                         // error message
                         JOptionPane.showMessageDialog(null, "El estudiante no puede hacer préstamos por ahora", "Error", JOptionPane.ERROR_MESSAGE);
                         fillTable(dataBase.getLoansList());
                     }
-                    
-                    
+
                 } else {
                     // error message
                     JOptionPane.showMessageDialog(null, "El libro no existe en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
                     fillTable(dataBase.getLoansList());
                 }
-                        
+
             } else {
                 // error message
                 JOptionPane.showMessageDialog(null, "El carnet no existe en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
@@ -300,28 +298,61 @@ public class loansForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Verifique que todos los campos sean correctos", "Error", JOptionPane.ERROR_MESSAGE);
         }
         fillTable(dataBase.getLoansList());
-        
+
     }//GEN-LAST:event_btnAddLoanActionPerformed
 
     private void btnEndLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEndLoanActionPerformed
-        int ans = JOptionPane.showConfirmDialog(null, "El costo total del préstamo es 1000\n"+"¿Desea cofirmar el pago?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        //button to calculate the total price of the loan
+        if (errorM.isValidCarnet(txtCarnet.getText()) && errorM.isValidBookCode(txtBookCod.getText())) {
+            localDate = localDate.now();
+            //Period period = null;
+            //newLoan.setBeginDate(localDate);******
+            
+            for (int i = 0; i < dataBase.getLoansList().size(); i++) {
+                if (dataBase.getLoansList().get(i).getStatus() == true) {
+                    if (dataBase.getLoansList().get(i).getStudentCarnet() == Integer.parseInt(txtCarnet.getText())
+                            && dataBase.getLoansList().get(i).getBookCode().equals(txtBookCod.getText())) {
+                        dataBase.getLoansList().get(i).setEndDate(localDate);
+                        
+                        int ans = JOptionPane.showConfirmDialog(null, "El costo total del préstamo es Q" + dataBase.getLoansList().get(i).totalCost() + "\n" + "¿Desea cofirmar el pago?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                        if (ans == JOptionPane.YES_OPTION) {
+                            dataBase.getLoansList().get(i).setStatus(false);
+                            for (int j = 0; j < dataBase.getBooksList().size(); j++) {
+                                if (dataBase.getBooksList().get(j).isBookCode(dataBase.getLoansList().get(i).getBookCode())) {
+                                    dataBase.getBooksList().get(j).setNoCopies(dataBase.getBooksList().get(j).getNoCopies()+1);
+                                    //confirmation message
+                                    cleanScreen();
+                                    JOptionPane.showMessageDialog(null, "Préstamo pagado correctamente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            // error message
+            JOptionPane.showMessageDialog(null, "Verifique que todos los campos sean correctos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        fillTable(dataBase.getLoansList());
+
+
     }//GEN-LAST:event_btnEndLoanActionPerformed
 
     // cleans all the textbox
-    private void cleanScreen(){
+    private void cleanScreen() {
         txtCarnet.setText("");
         txtBookCod.setText("");
     }
-    
+
     // fills all data to the tableModel
-    private void fillTable(ArrayList<loan> loansList){
+    private void fillTable(ArrayList<loan> loansList) {
         DefaultTableModel defaultModel = new DefaultTableModel(new String[]{"Carnet", "Código de libro", "Fecha de inicio"}, loansList.size());
         reportsTable.setModel(defaultModel);
-        
+
         TableModel dataModel = reportsTable.getModel();
-        
+
         List<loan> studentsSorted = loansList.stream().sorted(Comparator.comparing(loan::getStudentCarnet)).collect(Collectors.toList());
-        
+
         for (int i = 0; i < studentsSorted.size(); i++) {
             loan loan = studentsSorted.get(i);
             dataModel.setValueAt(loan.getStudentCarnet(), i, 0);
@@ -329,7 +360,7 @@ public class loansForm extends javax.swing.JFrame {
             dataModel.setValueAt(loan.getBeginDate().toString(), i, 2);
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */
