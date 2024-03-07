@@ -1,7 +1,6 @@
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/reports/lateBooks.java
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/students/student.java
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/archives/archive.java
-/home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/lists/listException.java
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/Library.java
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/Menu.java
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/loans/loansForm.java
@@ -11,11 +10,9 @@
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/errorManagement/errorManagement.java
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/students/studentsForm.java
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/reports/currentStudentsLoans.java
-/home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/lists/genericNode.java
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/reports/raisedMoney.java
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/reports/careerLoans.java
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/reports/reports.java
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/loans/loan.java
-/home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/lists/genericList.java
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/archives/dataBase.java
 /home/carlos/NetBeansProjects/newLibrary/Library/library/src/main/java/com/mycompany/library/books/book.java

@@ -18,7 +18,6 @@ com/mycompany/library/reports/reports$3.class
 com/mycompany/library/students/studentsForm$3.class
 com/mycompany/library/students/studentsForm.class
 com/mycompany/library/reports/currentStudentsLoans$3.class
-com/mycompany/library/lists/genericNode.class
 com/mycompany/library/reports/dayDeliveries$2.class
 com/mycompany/library/loans/loansForm$2.class
 com/mycompany/library/reports/reports$8.class
@@ -32,9 +31,7 @@ com/mycompany/library/reports/careerLoans$3.class
 com/mycompany/library/reports/reports$7.class
 com/mycompany/library/reports/raisedMoney$3.class
 com/mycompany/library/archives/archive.class
-com/mycompany/library/lists/genericList.class
 com/mycompany/library/reports/careerLoans$4.class
-com/mycompany/library/lists/listException.class
 com/mycompany/library/loans/loansForm.class
 com/mycompany/library/reports/studentsLoans$2.class
 com/mycompany/library/reports/raisedMoney$4.class
