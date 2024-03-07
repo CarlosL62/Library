@@ -115,10 +115,15 @@ public class logic {
                 break;
             case "CODIGO":
                 if (util.isValidBookCode(splitTwo)) {
+
+                    lsBook = dataBase.getBooksList().stream().filter(x -> x.isBookCode(splitTwo)).collect(Collectors.toList());
+
+                    if (lsBook.size() == 0) {
+                        this.temporalBookCode = splitTwo;
+                    } else {
+                        this.temporalBookCode = null;
+                    }
                     
-                    //lsBook = dataBase.getBooksList().stream().filter(x -> x.isCarnet(splitTwo)).collect(Collectors.toList());
-                    
-                    this.temporalBookCode = splitTwo;
                 } else {
                     this.temporalBookCode = null;
                 }
@@ -171,8 +176,6 @@ public class logic {
         switch (splitOne) {
             case "CARNET":
                 if (util.isValidCarnet(splitTwo)) {
-
-                    //this.temporalCarnet = Integer.parseInt(splitTwo);
 
                     lsStudent = dataBase.getStudentsList().stream().filter(x -> x.isCarnet(splitTwo)).collect(Collectors.toList());
 
