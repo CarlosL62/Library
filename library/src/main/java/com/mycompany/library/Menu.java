@@ -221,11 +221,10 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnImportDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportDataActionPerformed
         // TODO add your handling code here:
+
         JFileChooser jf = new JFileChooser();
         jf.showOpenDialog(this);
         File routeFile = jf.getSelectedFile();
-
-        int lineCounter = 1;
 
         if (routeFile != null) {
 
@@ -243,14 +242,13 @@ public class Menu extends javax.swing.JFrame {
 
                     if ((fileContent = reader.readLine()) != null) {
 
-                        util.splitWords(fileContent, lineCounter);
+                        util.splitWords(fileContent);
                         completeFileContent = fileContent + "\n";
 
                         while ((fileContent = reader.readLine()) != null) {
 
-                            util.splitWords(fileContent, lineCounter);
+                            util.splitWords(fileContent);
                             completeFileContent += fileContent + "\n";
-                            lineCounter = lineCounter + 1;
                         }
 
                     } else {
