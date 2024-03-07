@@ -15,7 +15,7 @@ public class loan implements Serializable {
     
     private int studentCarnet;
     private String bookCode;
-    private boolean status = false;
+    private boolean status = true;
     private LocalDate beginDate;
     private LocalDate endDate;
 
@@ -66,4 +66,16 @@ public class loan implements Serializable {
             return false;
         }
     }
+    
+    private Period period;
+    
+    public int totalCost () {
+        int days = 0;
+        period.between(beginDate, endDate);
+        days = period.getDays();
+        int totalCost = 3*5 + (days-3)*10;
+        return totalCost;
+    }
+            
+        
 }
