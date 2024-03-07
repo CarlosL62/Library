@@ -250,7 +250,6 @@ public class loansForm extends javax.swing.JFrame {
             newLoan.setBookCode(txtBookCod.getText());
             localDate = localDate.now();
             newLoan.setBeginDate(localDate);
-
             // comprobations
             List ls = dataBase.getStudentsList().stream().filter(x -> x.isCarnet(String.valueOf(newLoan.getStudentCarnet()))).collect(Collectors.toList());
             // if there is one, then it is a correct carnet
@@ -258,10 +257,34 @@ public class loansForm extends javax.swing.JFrame {
                 // then, we need to check the book
                 List lb = dataBase.getBooksList().stream().filter(x -> x.isBookCode(newLoan.getBookCode())).collect(Collectors.toList());
                 if (lb.size() == 1) {
-                    dataBase.getLoansList().add(newLoan);
-                    //confirmation message
-                    cleanScreen();
-                    JOptionPane.showMessageDialog(null, "Préstamo agregado correctamente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                    List lc = dataBase.getLoansList().stream().filter(x -> (x.isStudentCarnet(newLoan.getStudentCarnet()))).collect(Collectors.toList());
+                    // we check if the student has loans left
+                    if (lc.size() < 3) {
+                        
+                        dataBase.getBooksList().stream().forEach(x -> {
+                            if (x.getCodeBook().equals(newLoan.getBookCode())) {
+                                if (x.getNoCopies() > 0) {
+                                    x.setNoCopies(x.getNoCopies() - 1);
+                                    dataBase.getLoansList().add(newLoan);
+                                    //confirmation message
+                                    cleanScreen();
+                                    JOptionPane.showMessageDialog(null, "Préstamo agregado correctamente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                                } else {
+                                    // error message
+                                    JOptionPane.showMessageDialog(null, "No hay suficiente copias", "Error", JOptionPane.ERROR_MESSAGE);
+                                }
+
+                                
+                            }
+                        });
+                    
+                    } else {
+                        // error message
+                        JOptionPane.showMessageDialog(null, "El estudiante no puede hacer préstamos por ahora", "Error", JOptionPane.ERROR_MESSAGE);
+                        fillTable(dataBase.getLoansList());
+                    }
+                    
+                    
                 } else {
                     // error message
                     JOptionPane.showMessageDialog(null, "El libro no existe en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
