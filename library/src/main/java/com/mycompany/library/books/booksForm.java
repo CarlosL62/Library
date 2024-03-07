@@ -10,6 +10,8 @@ import com.mycompany.library.errorManagement.errorManagement;
 import com.mycompany.library.students.student;
 import java.time.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -86,8 +88,8 @@ public class booksForm extends javax.swing.JFrame {
         lblNewStudent15 = new javax.swing.JLabel();
         lblNewStudent16 = new javax.swing.JLabel();
         txtCodBookMod = new javax.swing.JTextField();
-        btnSearch1 = new javax.swing.JButton();
-        txtBookCopies = new javax.swing.JTextField();
+        btnModify = new javax.swing.JButton();
+        txtNewNoCopies = new javax.swing.JTextField();
         lblNewStudent17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -316,7 +318,7 @@ public class booksForm extends javax.swing.JFrame {
         lblNewStudent5.setToolTipText("");
 
         jcbFilter.setFont(new java.awt.Font("Liberation Serif", 0, 14)); // NOI18N
-        jcbFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cod Libro", "Nombre", "Autor" }));
+        jcbFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cod Libro", "Título", "Autor" }));
 
         txtFilter.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
 
@@ -350,6 +352,11 @@ public class booksForm extends javax.swing.JFrame {
         btnSearch.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/search.png"))); // NOI18N
         btnSearch.setText("Buscar");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -409,11 +416,16 @@ public class booksForm extends javax.swing.JFrame {
 
         txtCodBookMod.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
 
-        btnSearch1.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
-        btnSearch1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/modify.png"))); // NOI18N
-        btnSearch1.setText("Modificar");
+        btnModify.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
+        btnModify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/modify.png"))); // NOI18N
+        btnModify.setText("Modificar");
+        btnModify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyActionPerformed(evt);
+            }
+        });
 
-        txtBookCopies.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
+        txtNewNoCopies.setFont(new java.awt.Font("Liberation Serif", 2, 18)); // NOI18N
 
         lblNewStudent17.setBackground(new java.awt.Color(255, 255, 255));
         lblNewStudent17.setFont(new java.awt.Font("Liberation Serif", 0, 18)); // NOI18N
@@ -438,9 +450,9 @@ public class booksForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblNewStudent17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtBookCopies, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNewNoCopies, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                        .addComponent(btnSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -449,14 +461,13 @@ public class booksForm extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(lblNewStudent15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNewStudent16)
+                    .addComponent(txtCodBookMod, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModify)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblNewStudent17)
-                        .addComponent(txtBookCopies, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblNewStudent16)
-                        .addComponent(txtCodBookMod, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSearch1)))
+                        .addComponent(txtNewNoCopies, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -518,6 +529,80 @@ public class booksForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        int option = jcbFilter.getSelectedIndex(); // 0 BookCode, 1 Title, 2 Autor
+        String textToFilter = txtFilter.getText();
+        if (checkFilter(option, textToFilter)) {
+            fillTable(filterList(option, textToFilter));
+        } else {
+            // error message
+            JOptionPane.showMessageDialog(null, "Verifique que el campo sea correcto", "Error", JOptionPane.ERROR_MESSAGE);
+            fillTable(dataBase.getBooksList());
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
+        if (errorM.isValidBookCode(txtCodBookMod.getText())) {
+            List ls = dataBase.getBooksList().stream().filter(x -> x.isBookCode(txtCodBookMod.getText())).collect(Collectors.toList());
+            if (ls.size() == 1) {
+                if (errorM.isInt(txtNewNoCopies.getText())) {
+                    dataBase.getBooksList().stream().forEach(x -> {
+                        x.newNoCopies(txtCodBookMod.getText(), Integer.parseInt(txtNewNoCopies.getText()));
+                    });
+                    // confirmation message
+                    JOptionPane.showMessageDialog(null, "Cambios realizados", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                    fillTable(dataBase.getBooksList());
+                    
+                    //dataBase.getBooksList().stream().filter(x -> x.newNoCopies(txtCodBookMod.getText(), Integer.parseInt(txtNewNoCopies.getText())));
+                } else {
+                    // error message
+                    JOptionPane.showMessageDialog(null, "Verifique que el número de copias sea correcto", "Error", JOptionPane.ERROR_MESSAGE);
+                    fillTable(dataBase.getBooksList());
+                }
+            } else if (ls.size() == 0){
+                // error message
+                JOptionPane.showMessageDialog(null, "El código no existe en la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
+                fillTable(dataBase.getBooksList());
+            }
+
+        } else {
+            // error message
+            JOptionPane.showMessageDialog(null, "Verifique que el código sea correcto", "Error", JOptionPane.ERROR_MESSAGE);
+            fillTable(dataBase.getBooksList());
+        }
+    }//GEN-LAST:event_btnModifyActionPerformed
+
+    // method to check that the text to filter is correct
+    private boolean checkFilter(int option, String textToFilter){
+        switch (option) {
+            case 0:
+                return errorM.isValidBookCode(textToFilter);
+            case 1:
+                return true;
+            case 2:
+                return errorM.isText(textToFilter);
+            default:
+                throw new AssertionError();
+        }
+        
+    }
+    
+    // method to filter the table
+    private List<book> filterList(int option, String txtToFilter){
+        switch (option) {
+            case 0:
+                return dataBase.getBooksList().stream().filter(x -> x.isBookCode(txtToFilter)).collect(Collectors.toList());
+                
+            case 1:
+                return dataBase.getBooksList().stream().filter(x -> x.isTitle(txtToFilter)).collect(Collectors.toList());
+                
+            case 2:
+                return dataBase.getBooksList().stream().filter(x -> x.isAutor(txtToFilter)).collect(Collectors.toList());
+            default:
+                throw new AssertionError();
+        }
+    }
+    
     // cleans all the textbox and resets the combobox
     private void cleanScreen(){
         txtCodBook.setText("");
@@ -530,7 +615,7 @@ public class booksForm extends javax.swing.JFrame {
         txtyyyy.setText("");
         
         txtCodBookMod.setText("");
-        txtBookCopies.setText("");
+        txtNewNoCopies.setText("");
         
         jcbFilter.setSelectedIndex(0);
         txtFilter.setText("");
@@ -538,6 +623,24 @@ public class booksForm extends javax.swing.JFrame {
     
     // fills all data to the tableModel
     private void fillTable(ArrayList<book> booksList){
+        DefaultTableModel defaultModel = new DefaultTableModel(new String[]{"Código", "Título", "No Copias", "Autor", "Editorial", "Fecha de publicación"}, booksList.size());
+        tblBooks.setModel(defaultModel);
+        
+        TableModel dataModel = tblBooks.getModel();
+        for (int i = 0; i < booksList.size(); i++) {
+            book book = booksList.get(i);
+            dataModel.setValueAt(book.codeBook, i, 0);
+            dataModel.setValueAt(book.title, i, 1);
+            dataModel.setValueAt(book.noCopies, i, 2);
+            dataModel.setValueAt(book.autor, i, 3);
+            dataModel.setValueAt(book.editorial, i, 4);
+            dataModel.setValueAt(book.publicationDay, i, 5);
+            
+        }
+    }
+    
+    // fills all data to the tableModel
+    private void fillTable(List<book> booksList){
         DefaultTableModel defaultModel = new DefaultTableModel(new String[]{"Código", "Título", "No Copias", "Autor", "Editorial", "Fecha de publicación"}, booksList.size());
         tblBooks.setModel(defaultModel);
         
@@ -596,8 +699,8 @@ public class booksForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane JScrollPane;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnModify;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnSearch1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -623,11 +726,11 @@ public class booksForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblStudents;
     private javax.swing.JTable tblBooks;
     private javax.swing.JTextField txtAutor;
-    private javax.swing.JTextField txtBookCopies;
     private javax.swing.JTextField txtCodBook;
     private javax.swing.JTextField txtCodBookMod;
     private javax.swing.JTextField txtEditorial;
     private javax.swing.JTextField txtFilter;
+    private javax.swing.JTextField txtNewNoCopies;
     private javax.swing.JTextField txtNoCopies;
     private javax.swing.JTextField txtTitle;
     private javax.swing.JTextField txtdd;
