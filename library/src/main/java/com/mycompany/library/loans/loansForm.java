@@ -235,7 +235,8 @@ public class loansForm extends javax.swing.JFrame {
             localDate = localDate.now();
             newLoan.setBeginDate(localDate);
             
-            dataBase.getLoansList().addNodo(newLoan);
+            //dataBase.getLoansList().addNodo(newLoan);
+            dataBase.getLoansList().add(newLoan);
             
             // confirmation message
             JOptionPane.showMessageDialog(null, "Datos guardados correctamente");

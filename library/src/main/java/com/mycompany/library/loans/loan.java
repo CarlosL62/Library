@@ -15,7 +15,7 @@ public class loan implements Serializable {
     
     private int studentCarnet;
     private String bookCode;
-    private boolean payed = false;
+    private boolean status = false;
     private LocalDate beginDate;
     private LocalDate endDate;
 
@@ -35,12 +35,12 @@ public class loan implements Serializable {
         this.bookCode = bookCode;
     }
 
-    public boolean isPayed() {
-        return payed;
+    public boolean getStatus() {
+        return status;
     }
 
-    public void setPayed(boolean payed) {
-        this.payed = payed;
+    public void setStatus(boolean payed) {
+        this.status = payed;
     }
 
     public LocalDate getBeginDate() {

@@ -9,6 +9,7 @@ import com.mycompany.library.lists.*;
 import com.mycompany.library.loans.loan;
 import com.mycompany.library.students.student;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,7 +18,25 @@ import java.io.Serializable;
 public class dataBase implements Serializable{
     //This class will work as the library's database
     
-    private genericList<student> studentsList; //List of students
+    private ArrayList<student> studentsList;
+    private ArrayList<book> booksList;
+    private ArrayList<loan> loansList;
+
+    public ArrayList<student> getStudentsList() {
+        return studentsList;
+    }
+
+    public ArrayList<book> getBooksList() {
+        return booksList;
+    }
+
+    public ArrayList<loan> getLoansList() {
+        return loansList;
+    }
+    
+    
+    
+    /*private genericList<student> studentsList; //List of students
     private genericList<book> booksList; //List of books
     private genericList<loan> loansList; //list of loans
 
@@ -43,13 +62,13 @@ public class dataBase implements Serializable{
 
     public void setLoansList(genericList<loan> loansList) {
         this.loansList = loansList;
-    }
+    }*/
 
     public dataBase() {
         //The lists are inicialized
-        studentsList = new genericList<>();
-        booksList = new genericList<>();
-        loansList = new genericList<>();
+        studentsList = new ArrayList<student>();
+        booksList = new ArrayList<book>();
+        loansList = new ArrayList<loan>();
     }
     
     

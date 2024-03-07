@@ -318,24 +318,30 @@ public class booksForm extends javax.swing.JFrame {
 
         tblBooks.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Código", "Título", "No. Copias", "Autor", "Editorial", "Fecha de publicación"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tblBooks.getTableHeader().setReorderingAllowed(false);
         tblStudents.setViewportView(tblBooks);
+        if (tblBooks.getColumnModel().getColumnCount() > 0) {
+            tblBooks.getColumnModel().getColumn(0).setResizable(false);
+            tblBooks.getColumnModel().getColumn(1).setResizable(false);
+            tblBooks.getColumnModel().getColumn(2).setResizable(false);
+            tblBooks.getColumnModel().getColumn(3).setResizable(false);
+            tblBooks.getColumnModel().getColumn(4).setResizable(false);
+            tblBooks.getColumnModel().getColumn(5).setResizable(false);
+        }
 
         btnSearch.setFont(new java.awt.Font("Liberation Serif", 0, 24)); // NOI18N
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/library/images/search.png"))); // NOI18N
@@ -494,7 +500,9 @@ public class booksForm extends javax.swing.JFrame {
                 newBook.setPublicationDay(null);
             }
             
-            dataBase.getBooks().addNodo(newBook);
+            //dataBase.getBooks().addNodo(newBook);
+            dataBase.getBooksList().add(newBook);
+            
             
             // confirmation message
             JOptionPane.showMessageDialog(null, "Datos guardados correctamente");

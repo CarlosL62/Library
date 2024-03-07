@@ -32,6 +32,8 @@ public class Menu extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println(dataBase.getStudentsList().get(0).getName());
+        System.out.println(dataBase.getBooksList().get(0).getTitle());
     }
 
     private dataBase dataBase;
@@ -203,7 +205,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
         // TODO add your handling code here:
-        reports reportsForm = new reports();
+        reports reportsForm = new reports(this, dataBase);
         reportsForm.setVisible(true);
         reportsForm.setLocationRelativeTo(null);
         this.setVisible(false);
