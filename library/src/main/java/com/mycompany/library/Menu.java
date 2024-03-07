@@ -32,8 +32,6 @@ public class Menu extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(dataBase.getStudentsList().get(0).getName());
-        System.out.println(dataBase.getBooksList().get(0).getTitle());
     }
 
     private dataBase dataBase;
